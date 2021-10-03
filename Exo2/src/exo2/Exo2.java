@@ -1,6 +1,6 @@
 /*
  * TPO Exercice 1
- * Elouan Barois
+ * Elouan Barois Loic Bernard
  * Septembre 2021
  */
 package exo2;

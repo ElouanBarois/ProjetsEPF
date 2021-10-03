@@ -1,6 +1,6 @@
 /*
  * TPO Exercice 1
- * Elouan Barois
+ * Elouan Barois Loïc Bernard
  * Septembre 2021
  */
 package calculator;
