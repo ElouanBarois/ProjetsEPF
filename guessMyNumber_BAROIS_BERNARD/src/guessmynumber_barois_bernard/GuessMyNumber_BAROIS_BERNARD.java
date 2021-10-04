@@ -70,31 +70,25 @@ public class GuessMyNumber_BAROIS_BERNARD {
             }
         }
         if (Diff==2) {
-            System.out.println("Mode Normal activé: tentatives limitées, nombre entre 0 et 100");
-            int n = generateurAleat.nextInt(50);
-            System.out.println("Saisissez une valeur entre 0 et 50");
+            System.out.println("Mode Normal activé: tentatives limitées à 10, nombre entre 0 et 100");
+            int n = generateurAleat.nextInt(100);
+            System.out.println("Saisissez une valeur entre 0 et 100");
             ChoixJoueur = sc.nextInt();
-            while (ChoixJoueur!=n) {
+            while (ChoixJoueur!=n & compteur<10) {
                 if (ChoixJoueur>n) {
                         System.out.println("Trop grand: ");
                         System.out.println("Saisissez une valeur entre 0 et 100");
                         ChoixJoueur = sc.nextInt();
                     }
-                }
+                
                 if (ChoixJoueur<n) {
-                    if (ChoixJoueur<(n-15)) {
-                        System.out.println("Beaucoup Trop petit: (au moins 15 de différence)");
-                        System.out.println("Saisissez une valeur entre 0 et 50");
-                        ChoixJoueur = sc.nextInt();
-                    } 
-                    else {
-                        System.out.println("Trop petit: (moins de 15 de différence)");
-                        System.out.println("Saisissez une valeur entre 0 et 50");
+                        System.out.println("Trop petit:");
+                        System.out.println("Saisissez une valeur entre 0 et 100");
                         ChoixJoueur = sc.nextInt();
                     }
                 }
                 compteur ++;
-            }
+            if 
             if (ChoixJoueur==n) {
                 System.out.println("Gagné en "+(compteur+1)+" tentatives");
 
