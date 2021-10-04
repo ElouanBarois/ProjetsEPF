@@ -1,7 +1,7 @@
 /*
  * TP1 Exercice 1
  * Elouan Barois Loïc Bernard
- * Septembre 2021
+ * Octobre 2021
  */
 package manipnombresint_barois_bernard;
 
