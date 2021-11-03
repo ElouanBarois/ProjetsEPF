@@ -9,9 +9,28 @@ package sp4_console_barois._bernard;
  * @author Elou
  */
 public class Cellule {
+    
     Jeton jetonCourant;
+    
     public Cellule(){
-        
+        jetonCourant=null;
     
     }
-}
+    public boolean affecterJeton(Jeton unJeton){
+        if (jetonCourant==null) {
+            jetonCourant=unJeton;
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public String lireCouleurDuJeton(){
+        if (jetonCourant==null) {
+            return "vide";
+        }else{
+            return jetonCourant.Couleur;  
+        }
+    }
+    }
+    
+
