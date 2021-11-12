@@ -57,34 +57,72 @@ public class Grille {
     public String lireCouleurDuJeton(int ligne, int colonne){
         return CellulesJeu[ligne-1][colonne-1].jetonCourant.Couleur;  
     }
-    public boolean etreGagnantePourJoueur(Joueur unJoueur){
-        int rep=1;
-        for(int j=0;j<6;j++){
-            for(int i=0;i<7;i++){
-                if (CellulesJeu[j][i].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j][i+1].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j][i+2].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j][i+3].jetonCourant.Couleur==unJoueur.Couleur){
-                    rep=2;
-                    return true;
-                }
-                if (CellulesJeu[j][i].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+1][i].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+2][i].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+3][i].jetonCourant.Couleur==unJoueur.Couleur){
-                    rep=2;
-                    return true;
-                }
-                if (CellulesJeu[j][i].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+1][i+1].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+2][i+2].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+3][i+3].jetonCourant.Couleur==unJoueur.Couleur){
-                    rep=2;
-                    return true;
-                }
-                if (CellulesJeu[j][i].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+1][i-1].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+2][i-2].jetonCourant.Couleur==unJoueur.Couleur && CellulesJeu[j+3][i-3].jetonCourant.Couleur==unJoueur.Couleur){
-                    rep=2;
-                    return true;
+    public boolean etreGagnantePourJoueur(Joueur joueur){
+        int val=0;
+        int j;
+        int i;
+        for(j=0;j<6;j++){
+            if (val==1){
+                break;
+            }
+            for(i=0;i<4;i++){
+                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j][i+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j][i+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j][i+3].jetonCourant.Couleur==joueur.Couleur){
+                    val=1;
+                    break;
                 }
             }
         }
-        if (rep==2){
+        for(j=0;j<3;j++){
+            if (val==1){
+                break;
+            }
+            for(i=0;i<7;i++){
+
+                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+1][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+2][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+3][i].jetonCourant.Couleur==joueur.Couleur){
+                    val=1;
+                    break;
+                }
+            }
+        }
+
+        for(j=0;j<3;j++){
+            if (val==1){
+                break;
+            }
+            for(i=0;i<4;i++){
+                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+1][i+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+2][i+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+3][i+3].jetonCourant.Couleur==joueur.Couleur){
+                    val=1;
+                    break;
+                }
+            }
+        }
+
+        for(j=0;j<3;j++){
+            if (val==1){
+                break;
+            }
+            for(i=6;i<3;i--){
+                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+1][i-1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+2][i-2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+3][i-3].jetonCourant.Couleur==joueur.Couleur){
+                    val=1;
+                    break;
+                }
+            }
+        }
+        if (val==1){
             return true;
         }
         else{
             return false;
         }
+    }
+    public boolean colonneRemplie(int numColonne){
+
+            if (CellulesJeu[5][numColonne-1]!=null){
+                return true;
+            }else{
+                return false;
+            }
+            
     }
 }
     

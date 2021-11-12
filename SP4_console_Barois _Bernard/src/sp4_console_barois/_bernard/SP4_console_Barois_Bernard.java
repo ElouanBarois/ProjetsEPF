@@ -4,6 +4,8 @@
  */
 package sp4_console_barois._bernard;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Elou
@@ -15,6 +17,21 @@ public class SP4_console_Barois_Bernard {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       Scanner sc = new Scanner(System.in) ;
+       String nomJ1 ; 
+       String nomJ2 ;
+
+       System.out.println("Veuillez entrer le nom du premier joueur:") ;
+       nomJ1 = sc.next() ;
+       Joueur Joueur1 = new Joueur(nomJ1)  ;
+
+       System.out.println("Veuillez entrer le nom du deuxième joueur:") ;
+       nomJ2 = sc.next() ;
+       Joueur Joueur2 = new Joueur(nomJ2)  ;
+        
+       Partie unePartie=new Partie(Joueur1,Joueur2);
+       unePartie.initialiserPartie();
+       unePartie.debuterPartie();
         
     }
     

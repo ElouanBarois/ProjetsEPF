@@ -11,7 +11,7 @@ package sp4_console_barois._bernard;
 public class Joueur {
     String nom;
     String Couleur;
-    Jeton ListeJeton []= new Jeton [21]; 
+    Jeton listeJetons []= new Jeton [21]; 
     int nombreJetonsRestants;
     
     public Joueur(String Unnom){
@@ -22,8 +22,13 @@ public class Joueur {
         Couleur=UneCouleur;
     }
     
-    public void ajouterJeton(Jeton UnJeton){
-        ListeJeton[nombreJetonsRestants]=UnJeton;
+    public boolean ajouterJeton(Jeton UnJeton){
+        if (nombreJetonsRestants!=21){
+            listeJetons[nombreJetonsRestants]=UnJeton;
+            return true;
+        }else{
+            return false;
+        }
     }
     
 }
