@@ -53,9 +53,9 @@ public class Partie {
         int upperbound = 2;
         int int_random = rand.nextInt(upperbound);
         if (int_random==0){
-            listeJoueurs[0]=JoueurCourant;
+            JoueurCourant=listeJoueurs[0];
         }else{
-            listeJoueurs[1]=JoueurCourant;
+            JoueurCourant=listeJoueurs[1];
         }
     }
     
@@ -63,14 +63,14 @@ public class Partie {
         Scanner sc = new Scanner(System.in) ;
         int i=0;
         int j=0;
-        grilleJeu.afficherGrilleSurConsole();
         boolean test=false;
+        System.out.println("Le joueur " +JoueurCourant.nom+ " "+JoueurCourant.Couleur+" commence");
         while (test==false){
             
             
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Dans quelle colonne voulez-vous placer votre Jeton?") ;
-            int numColonne = sc.nextInt() ;
+            int numColonne = sc.nextInt()-1 ;
             if (JoueurCourant.Couleur=="Rouge"){
                 grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[i],numColonne);
                 JoueurCourant.listeJetons[i]=null;

@@ -13,18 +13,23 @@ public class Grille {
     Cellule[] [] CellulesJeu = new Cellule [6][7] ;
     int i = 0;
     public Grille (){
-        CellulesJeu=null;
+        for (int i=0;i<6;i++){
+            for (int j=0;j<7;j++){
+                CellulesJeu[i][j]=null;
+            }
+        }
     }
 
     public boolean ajouterJetonDansColonne(Jeton jeton , int numColonne){
-            if (CellulesJeu[5][numColonne-1]!=null){
+            int j=0;
+            if (CellulesJeu[5][numColonne]!=null){
                 return false ;
             }
             else {
-                while (CellulesJeu[i][numColonne-1]!=null ){ 
-                    i++ ;
+                while (celluleOccupee(j,numColonne)){ 
+                    j++ ;
                 }
-                CellulesJeu[i][numColonne-1].jetonCourant=jeton ;
+                boolean oui=CellulesJeu[j][numColonne].affecterJeton(jeton) ;
                 return true ; 
             }
     }
@@ -45,10 +50,25 @@ public class Grille {
         CellulesJeu=null;
     }
     public void afficherGrilleSurConsole(){
-        System.out.println(CellulesJeu);
+        for (int i=0;i<6;i++){
+            for (int j=0;j<7;j++){
+                if (celluleOccupee(i, j)==true){
+                    if (lireCouleurDuJeton(i, j)=="Rouge"){
+                        System.out.print("\033[31m O  ");
+                    }else{
+                        System.out.print("\033[33m O  ");
+                    }
+                }else{
+                    System.out.print("\033[37m O  ");
+                }
+                
+            }
+            System.out.println("");
+        }
+        
     }
     public boolean celluleOccupee(int ligne, int colonne){
-        if (CellulesJeu[ligne-1][colonne-1]!=null){
+        if (CellulesJeu[ligne][colonne]!=null){
             return true;
         }else{
             return false;
@@ -57,54 +77,62 @@ public class Grille {
     public String lireCouleurDuJeton(int ligne, int colonne){
         return CellulesJeu[ligne-1][colonne-1].jetonCourant.Couleur;  
     }
+    
     public boolean etreGagnantePourJoueur(Joueur joueur){
         int val=0;
-        int j;
         int i;
-        for(j=0;j<6;j++){
+        int j;
+        for(i=0;i<6;i++){  //Pour toutes les lignes
             if (val==1){
                 break;
             }
-            for(i=0;i<4;i++){
-                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j][i+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j][i+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j][i+3].jetonCourant.Couleur==joueur.Couleur){
-                    val=1;
-                    break;
+            for(j=0;j<4;j++){  //On teste si 4 jetons de suite sur 1 ligne
+                if (celluleOccupee(i, j)&&celluleOccupee(i, j+1)&&celluleOccupee(i, j+2)&&celluleOccupee(i, j+3)==true){
+                    if (CellulesJeu[i][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i][j+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i][j+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i][j+3].jetonCourant.Couleur==joueur.Couleur){
+                        val=1;
+                        break;
+                    }
                 }
             }
         }
-        for(j=0;j<3;j++){
+        for(i=0;i<3;i++){
             if (val==1){
                 break;
             }
-            for(i=0;i<7;i++){
-
-                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+1][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+2][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+3][i].jetonCourant.Couleur==joueur.Couleur){
-                    val=1;
-                    break;
-                }
-            }
-        }
-
-        for(j=0;j<3;j++){
-            if (val==1){
-                break;
-            }
-            for(i=0;i<4;i++){
-                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+1][i+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+2][i+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+3][i+3].jetonCourant.Couleur==joueur.Couleur){
-                    val=1;
-                    break;
+            for(j=0;j<7;j++){
+                if (celluleOccupee(i, j)&&celluleOccupee(i+1, j)&&celluleOccupee(i+2, j)&&celluleOccupee(i+3, j)==true){
+                    if (CellulesJeu[i][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+1][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+2][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+3][j].jetonCourant.Couleur==joueur.Couleur){
+                        val=1;
+                        break;
+                    }
                 }
             }
         }
 
-        for(j=0;j<3;j++){
+        for(i=0;i<3;i++){
             if (val==1){
                 break;
             }
-            for(i=6;i<3;i--){
-                if (CellulesJeu[j][i].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+1][i-1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+2][i-2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[j+3][i-3].jetonCourant.Couleur==joueur.Couleur){
-                    val=1;
-                    break;
+            for(j=0;j<4;j++){
+                if (celluleOccupee(i, j)&&celluleOccupee(i+1, j+1)&&celluleOccupee(i+2, j+2)&&celluleOccupee(i+3, j+3)==true){
+                    if (CellulesJeu[i][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+1][j+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+2][j+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+3][j+3].jetonCourant.Couleur==joueur.Couleur){
+                        val=1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for(i=0;i<3;i++){
+            if (val==1){
+                break;
+            }
+            for(j=6;j<3;j--){
+                if (celluleOccupee(i, j)&&celluleOccupee(i+1, j-1)&&celluleOccupee(i+2, j-2)&&celluleOccupee(i+3, j-3)==true){
+                    if (CellulesJeu[i][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+1][j-1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+2][j-2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+3][j-3].jetonCourant.Couleur==joueur.Couleur){
+                        val=1;
+                        break;
+                    }
                 }
             }
         }

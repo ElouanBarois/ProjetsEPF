@@ -30,9 +30,12 @@ public class SP4_console_Barois_Bernard {
        Joueur Joueur2 = new Joueur(nomJ2)  ;
         
        Partie unePartie=new Partie(Joueur1,Joueur2);
+       unePartie.attribuerCouleursAuxJoueurs();
        unePartie.initialiserPartie();
        unePartie.debuterPartie();
         
     }
     
 }
+
+    
