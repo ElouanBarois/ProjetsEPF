@@ -33,6 +33,14 @@ public class SP4_console_Barois_Bernard {
        unePartie.attribuerCouleursAuxJoueurs();
        unePartie.initialiserPartie();
        unePartie.debuterPartie();
+       unePartie.grilleJeu.afficherGrilleSurConsole();
+       
+       if (unePartie.JoueurCourant.Couleur=="Rouge"){
+           System.out.println("Le joueur Jaune a gagné !");
+       }
+       if (unePartie.JoueurCourant.Couleur=="Jaune"){
+           System.out.println("Le joueur Rouge a gagné !");
+       }
         
     }
     

@@ -37,16 +37,21 @@ public class Partie {
             Jeton unJeton= new Jeton("Rouge");
             if (listeJoueurs[0].Couleur=="Rouge"){
                 listeJoueurs[0].ajouterJeton(unJeton);
+                listeJoueurs[0].nombreJetonsRestants++;
             }else{
                 listeJoueurs[1].ajouterJeton(unJeton);
+                listeJoueurs[1].nombreJetonsRestants++;
             }
         }
         for (int i=0;i<21;i++){
             Jeton deuxJeton= new Jeton("Jaune");
             if (listeJoueurs[1].Couleur=="Jaune"){
                 listeJoueurs[1].ajouterJeton(deuxJeton);
+                listeJoueurs[1].nombreJetonsRestants++;
+                
             }else{
                 listeJoueurs[0].ajouterJeton(deuxJeton);
+                listeJoueurs[0].nombreJetonsRestants++;
             }
         }
         Random rand = new Random();
@@ -75,6 +80,7 @@ public class Partie {
                 grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[i],numColonne);
                 JoueurCourant.listeJetons[i]=null;
                 i++;
+                System.out.println(JoueurCourant.listeJetons[i].Couleur);
             }
             if (JoueurCourant.Couleur=="Jaune"){
                 grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[j],numColonne);
@@ -87,6 +93,7 @@ public class Partie {
             if (JoueurCourant==listeJoueurs[0]){
                 JoueurCourant=listeJoueurs[1];
             }else{ JoueurCourant=listeJoueurs[0];}
+            System.out.println(JoueurCourant.Couleur);
             
             
         }

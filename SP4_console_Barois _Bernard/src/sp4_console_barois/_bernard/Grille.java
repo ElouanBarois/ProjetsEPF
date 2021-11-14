@@ -12,31 +12,33 @@ public class Grille {
 
     Cellule[] [] CellulesJeu = new Cellule [6][7] ;
     int i = 0;
+    
     public Grille (){
         for (int i=0;i<6;i++){
             for (int j=0;j<7;j++){
-                CellulesJeu[i][j]=null;
+                CellulesJeu[i][j]=new Cellule();
             }
         }
     }
 
     public boolean ajouterJetonDansColonne(Jeton jeton , int numColonne){
             int j=0;
-            if (CellulesJeu[5][numColonne]!=null){
+            if (CellulesJeu[5][numColonne].jetonCourant!=null){
                 return false ;
             }
             else {
                 while (celluleOccupee(j,numColonne)){ 
                     j++ ;
                 }
-                boolean oui=CellulesJeu[j][numColonne].affecterJeton(jeton) ;
+                CellulesJeu[j][numColonne].affecterJeton(jeton) ;
                 return true ; 
             }
     }
+    
     public boolean etreRemplie() {
         boolean rep=false;
         for(int i=0;i<7;i++){
-            if (CellulesJeu[5][i]!=null){
+            if (CellulesJeu[5][i].jetonCourant!=null){
                 rep=true;
             }
         }
@@ -50,7 +52,7 @@ public class Grille {
         CellulesJeu=null;
     }
     public void afficherGrilleSurConsole(){
-        for (int i=0;i<6;i++){
+        for (int i=5;i>=0;i--){
             for (int j=0;j<7;j++){
                 if (celluleOccupee(i, j)==true){
                     if (lireCouleurDuJeton(i, j)=="Rouge"){
@@ -61,21 +63,23 @@ public class Grille {
                 }else{
                     System.out.print("\033[37m O  ");
                 }
-                
             }
             System.out.println("");
         }
         
     }
+    
+    
     public boolean celluleOccupee(int ligne, int colonne){
-        if (CellulesJeu[ligne][colonne]!=null){
+        if (CellulesJeu[ligne][colonne].jetonCourant!=null){
             return true;
         }else{
             return false;
         }
     }
+    
     public String lireCouleurDuJeton(int ligne, int colonne){
-        return CellulesJeu[ligne-1][colonne-1].jetonCourant.Couleur;  
+        return CellulesJeu[ligne][colonne].jetonCourant.Couleur;  
     }
     
     public boolean etreGagnantePourJoueur(Joueur joueur){
@@ -145,7 +149,7 @@ public class Grille {
     }
     public boolean colonneRemplie(int numColonne){
 
-            if (CellulesJeu[5][numColonne-1]!=null){
+            if (CellulesJeu[5][numColonne].jetonCourant!=null){
                 return true;
             }else{
                 return false;
