@@ -93,19 +93,27 @@ public class Partie {
             System.out.println("Si vous voulez jouer un Jeton: Tapez 1\nSi vous voulez en récupérer: Tapez 2 ");
             int Choix = sc.nextInt();
             if (Choix==2){
-                System.out.println("Quel jeton souhaitez-vous récupérer?");
-                System.out.print("Tapez la ligne:");
-                int ligne_choisie = sc.nextInt()-1;
-                System.out.print("Tapez la colonne:");
-                int colonne_choisie = sc.nextInt()-1;
-                if (grilleJeu.celluleOccupee(ligne_choisie, colonne_choisie)){
-                    grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
-                    grilleJeu.tasserGrille(colonne_choisie);
-                }else{
-                
-                
-                
+                for (int t=0;t<100;t++){
+                    System.out.println("Quel jeton souhaitez-vous récupérer?");
+                    System.out.print("Tapez la ligne:");
+                    int ligne_choisie = sc.nextInt()-1;
+                    System.out.print("Tapez la colonne:");
+                    int colonne_choisie = sc.nextInt()-1;
+                    if (grilleJeu.celluleOccupee(ligne_choisie, colonne_choisie)){
+                        grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
+                        grilleJeu.tasserGrille(colonne_choisie);
+                        break;
+                    }else{
+                        System.out.println("Il n'y a pas de jeton à vous dans cette case!");
+                    }
+                }
             }
+            
+                
+                
+                
+                
+            
             if (Choix==1){
                 System.out.println("Dans quelle colonne voulez-vous placer votre Jeton?") ;
                 int numCol=0;
