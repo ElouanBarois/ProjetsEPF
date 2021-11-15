@@ -90,7 +90,7 @@ public class Grille {
             if (val==1){
                 break;
             }
-            for(j=0;j<4;j++){  //On teste si 4 jetons de suite sur 1 ligne
+            for(j=0;j<4;j++){  //On teste si 4 jetons de suite sur 1a ligne
                 if (celluleOccupee(i, j)&&celluleOccupee(i, j+1)&&celluleOccupee(i, j+2)&&celluleOccupee(i, j+3)==true){
                     if (CellulesJeu[i][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i][j+1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i][j+2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i][j+3].jetonCourant.Couleur==joueur.Couleur){
                         val=1;
@@ -131,7 +131,7 @@ public class Grille {
             if (val==1){
                 break;
             }
-            for(j=6;j<3;j--){
+            for(j=6;j>2;j--){
                 if (celluleOccupee(i, j)&&celluleOccupee(i+1, j-1)&&celluleOccupee(i+2, j-2)&&celluleOccupee(i+3, j-3)==true){
                     if (CellulesJeu[i][j].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+1][j-1].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+2][j-2].jetonCourant.Couleur==joueur.Couleur && CellulesJeu[i+3][j-3].jetonCourant.Couleur==joueur.Couleur){
                         val=1;
