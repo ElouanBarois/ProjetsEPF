@@ -33,6 +33,23 @@ public class Partie {
     }
     public void initialiserPartie(){
         grilleJeu= new Grille ();
+        Random rand = new Random();
+        int maxLigne = 6;
+        int maxColonne= 7;
+        int random_ligne =0;
+        int random_colonne=0;
+        for (int i=0; i<5;i++){
+           random_ligne = rand.nextInt(maxLigne);
+           random_colonne= rand.nextInt(maxColonne);
+           if (grilleJeu.placerTrouNoir(random_ligne,random_colonne)==false){
+               i--;
+           }else{
+               continue;
+           }
+        }
+        
+        
+        
         for (int i=0;i<21;i++){
             Jeton unJeton= new Jeton("Rouge");
             if (listeJoueurs[0].Couleur=="Rouge"){
@@ -54,7 +71,6 @@ public class Partie {
                 listeJoueurs[0].nombreJetonsRestants++;
             }
         }
-        Random rand = new Random();
         int upperbound = 2;
         int int_random = rand.nextInt(upperbound);
         if (int_random==0){
@@ -69,10 +85,10 @@ public class Partie {
         int i=0;
         int j=0;
         boolean test=false;
-        System.out.println("Le joueur " +JoueurCourant.nom+ " "+JoueurCourant.Couleur+" commence");
         while (test==false){
             
-            
+            System.out.println("Au tour de " +JoueurCourant.nom+ " le Joueur de couleur "+JoueurCourant.Couleur+" !");
+            System.out.println();
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Dans quelle colonne voulez-vous placer votre Jeton?") ;
             int numColonne = sc.nextInt()-1 ;
@@ -80,12 +96,23 @@ public class Partie {
                 grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[i],numColonne);
                 JoueurCourant.listeJetons[i]=null;
                 i++;
-                System.out.println(JoueurCourant.listeJetons[i].Couleur);
+                for (int z=0;z<6;z++){
+                    if (grilleJeu.CellulesJeu[z][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(z,numColonne)){
+                        grilleJeu.CellulesJeu[z][numColonne].activerTrouNoir();
+                        break;
+                    }
+                }
             }
             if (JoueurCourant.Couleur=="Jaune"){
                 grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[j],numColonne);
                 JoueurCourant.listeJetons[j]=null;
                 j++;
+                for (int y=0;y<6;y++){
+                    if (grilleJeu.CellulesJeu[y][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(y,numColonne)){
+                        grilleJeu.CellulesJeu[y][numColonne].activerTrouNoir();
+                        break;
+                    }
+            }
             }
                 
             test=grilleJeu.etreGagnantePourJoueur(JoueurCourant);  
@@ -93,10 +120,9 @@ public class Partie {
             if (JoueurCourant==listeJoueurs[0]){
                 JoueurCourant=listeJoueurs[1];
             }else{ JoueurCourant=listeJoueurs[0];}
-            System.out.println(JoueurCourant.Couleur);
-            
             
         }
+        
     }
 }
 

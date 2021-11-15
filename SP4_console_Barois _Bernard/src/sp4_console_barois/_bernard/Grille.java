@@ -60,6 +60,8 @@ public class Grille {
                     }else{
                         System.out.print("\033[33m O  ");
                     }
+                }else if(CellulesJeu[i][j].presenceTrouNoir()==true){
+                    System.out.print("\033[35m O  ");
                 }else{
                     System.out.print("\033[37m O  ");
                 }
@@ -155,6 +157,35 @@ public class Grille {
                 return false;
             }
             
+    }
+    public boolean placerTrouNoir(int numLigne,int numColonne){
+        if (CellulesJeu[numLigne][numColonne].presenceTrouNoir()){
+            return false;
+        }else{
+            CellulesJeu[numLigne][numColonne].placerTrouNoir();
+            return true;
+        }
+    }
+    public boolean placerDesintegrateur(int numLigne, int numColonne){
+        if (CellulesJeu[numLigne][numColonne].presenceDesintegrateur()){
+                return false;
+            }else{
+                CellulesJeu[numLigne][numColonne].placerDesintegrateur();
+                return true;
+            }
+    }
+    public boolean supprimerJeton(int numLigne, int numColonne){
+        if (celluleOccupee(numLigne,numColonne)== true){
+            CellulesJeu[numLigne][numColonne].jetonCourant = null ;
+            return true ;
+        }
+        else {
+            return false ;
+        }
+    }
+    public Jeton recupererJeton(int numLigne , int numColonne){
+        CellulesJeu[numLigne][numColonne].jetonCourant = null ;
+        return CellulesJeu[numLigne][numColonne].jetonCourant ;
     }
 }
     
