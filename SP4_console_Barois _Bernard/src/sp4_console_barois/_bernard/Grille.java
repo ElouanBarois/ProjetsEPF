@@ -187,5 +187,16 @@ public class Grille {
         CellulesJeu[numLigne][numColonne].jetonCourant = null ;
         return CellulesJeu[numLigne][numColonne].jetonCourant ;
     }
+    public void tasserGrille(int numColonne){
+        for (int i=0;i<6;i++){
+            if (celluleOccupee(i,numColonne)==false){
+                for( int j=i;j<5;j++){
+                    CellulesJeu[j][numColonne].jetonCourant=CellulesJeu[j+1][numColonne].jetonCourant;
+                }
+                break;
+            }
+        }
+    }
+    
 }
     

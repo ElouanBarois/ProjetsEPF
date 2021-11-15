@@ -90,30 +90,48 @@ public class Partie {
             System.out.println("Au tour de " +JoueurCourant.nom+ " le Joueur de couleur "+JoueurCourant.Couleur+" !");
             System.out.println();
             grilleJeu.afficherGrilleSurConsole();
-            System.out.println("Dans quelle colonne voulez-vous placer votre Jeton?") ;
-            int numColonne = sc.nextInt()-1 ;
-            if (JoueurCourant.Couleur=="Rouge"){
-                grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[i],numColonne);
-                JoueurCourant.listeJetons[i]=null;
-                i++;
-                for (int z=0;z<6;z++){
-                    if (grilleJeu.CellulesJeu[z][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(z,numColonne)){
-                        grilleJeu.CellulesJeu[z][numColonne].activerTrouNoir();
-                        break;
+            System.out.println("Si vous voulez jouer un Jeton: Tapez 1\nSi vous voulez en récupérer: Tapez 2 ");
+            int Choix = sc.nextInt();
+            if (Choix==1){
+                System.out.println("Dans quelle colonne voulez-vous placer votre Jeton?") ;
+                int numCol=0;
+                int testBug=1;
+                while (testBug!=0){
+                    testBug=0;
+                    try{
+                        numCol=sc.nextInt();
+                    }
+                    catch(Exception e){
+                        testBug=1;
+                        System.out.println("erreur: Rentrez une colonne entre 1 et 7");
+                        sc.reset();
+                        sc.next();
                     }
                 }
-            }
-            if (JoueurCourant.Couleur=="Jaune"){
-                grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[j],numColonne);
-                JoueurCourant.listeJetons[j]=null;
-                j++;
-                for (int y=0;y<6;y++){
-                    if (grilleJeu.CellulesJeu[y][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(y,numColonne)){
-                        grilleJeu.CellulesJeu[y][numColonne].activerTrouNoir();
-                        break;
+                int numColonne ;
+                numColonne=numCol-1 ;
+                if (JoueurCourant.Couleur=="Rouge"){
+                    grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[i],numColonne);
+                    JoueurCourant.listeJetons[i]=null;
+                    i++;
+                    for (int z=0;z<6;z++){
+                        if (grilleJeu.CellulesJeu[z][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(z,numColonne)){
+                            grilleJeu.CellulesJeu[z][numColonne].activerTrouNoir();
+                            break;
+                        }
                     }
-            }
-            }
+                }
+                if (JoueurCourant.Couleur=="Jaune"){
+                    grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[j],numColonne);
+                    JoueurCourant.listeJetons[j]=null;
+                    j++;
+                    for (int y=0;y<6;y++){
+                        if (grilleJeu.CellulesJeu[y][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(y,numColonne)){
+                            grilleJeu.CellulesJeu[y][numColonne].activerTrouNoir();
+                            break;
+                        }
+                    }
+                }
                 
             test=grilleJeu.etreGagnantePourJoueur(JoueurCourant);  
                 
