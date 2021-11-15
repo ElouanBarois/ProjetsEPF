@@ -140,6 +140,7 @@ public class Partie {
             }else{ JoueurCourant=listeJoueurs[0];}
             
         }
+        }
         
     }
 }
