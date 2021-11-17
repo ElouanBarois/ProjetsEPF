@@ -81,31 +81,51 @@ public class Partie {
     }
     
     public void debuterPartie(){
+        Joueur DernierJoueur=null;
         Scanner sc = new Scanner(System.in) ;
         int i=0;
         int j=0;
-        boolean test=false;
-        while (test==false){
+        boolean test1=false;
+        boolean test2=false;
+        while (test1==false&&test2==false){
             
             System.out.println("Au tour de " +JoueurCourant.nom+ " le Joueur de couleur "+JoueurCourant.Couleur+" !");
             System.out.println();
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Si vous voulez jouer un Jeton: Tapez 1\nSi vous voulez en récupérer: Tapez 2 ");
             int Choix = sc.nextInt();
+            int verif_1=1;
             if (Choix==2){
-                for (int t=0;t<100;t++){
-                    System.out.println("Quel jeton souhaitez-vous récupérer?");
-                    System.out.print("Tapez la ligne:");
-                    int ligne_choisie = sc.nextInt()-1;
-                    System.out.print("Tapez la colonne:");
-                    int colonne_choisie = sc.nextInt()-1;
-                    if (grilleJeu.celluleOccupee(ligne_choisie, colonne_choisie)){
-                        grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
-                        grilleJeu.tasserGrille(colonne_choisie);
-                        break;
-                    }else{
-                        System.out.println("Il n'y a pas de jeton à vous dans cette case!");
+                for (int q=0;q<6;q++){
+                    for (int w=0;w<7;w++){
+                        if (grilleJeu.celluleOccupee(q, w)){
+                            if (grilleJeu.lireCouleurDuJeton(q, w)==JoueurCourant.Couleur){
+                                verif_1=0;
+                                break;
+                            }
+                        }
                     }
+                }
+                if(verif_1==0){
+                    for (int t=0;t<100;t++){
+                        System.out.println("Quel jeton souhaitez-vous récupérer?");
+                        System.out.print("Tapez la ligne:");
+                        int ligne_choisie = sc.nextInt()-1;
+                        System.out.print("Tapez la colonne:");
+                        int colonne_choisie = sc.nextInt()-1;
+                        if (grilleJeu.celluleOccupee(ligne_choisie, colonne_choisie)){
+                            if(grilleJeu.lireCouleurDuJeton(ligne_choisie, colonne_choisie)==JoueurCourant.Couleur){
+                                grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
+                                grilleJeu.tasserGrille(colonne_choisie);
+                                break;
+                            }
+                        }else{
+                            System.out.println("Il n'y a pas de jeton à vous dans cette case!");
+                        }
+                    }
+                }else{
+                    System.out.println("Vous ne pouvez pas retirer un jeton car il n'y en a aucun à vous sur la grille!\n Veuillez placer un Jeton:\n");
+                    Choix=1;
                 }
             }
             
@@ -154,16 +174,27 @@ public class Partie {
                         }
                     }
                 }
+            }
                 
-            test=grilleJeu.etreGagnantePourJoueur(JoueurCourant);  
-                
+            test1=grilleJeu.etreGagnantePourJoueur(listeJoueurs[0]);  
+            test2=grilleJeu.etreGagnantePourJoueur(listeJoueurs[1]); 
+            DernierJoueur=JoueurCourant;
+            
             if (JoueurCourant==listeJoueurs[0]){
                 JoueurCourant=listeJoueurs[1];
             }else{ JoueurCourant=listeJoueurs[0];}
             
-        }
-        }
         
+        }
+        JoueurCourant=DernierJoueur;
+        if (test1==true&&test2==true){
+            JoueurCourant.Couleur="Noir";
+        }else if(test1==true){
+            JoueurCourant.Couleur=listeJoueurs[0].Couleur;
+        }else if(test2==true){
+            JoueurCourant.Couleur=listeJoueurs[1].Couleur;
+        
+        }
     }
 }
 

@@ -35,13 +35,16 @@ public class SP4_console_Barois_Bernard {
        unePartie.debuterPartie();
        unePartie.grilleJeu.afficherGrilleSurConsole();
        
+       System.out.println(unePartie.JoueurCourant.Couleur);
        if (unePartie.JoueurCourant.Couleur=="Rouge"){
-           System.out.println("Le joueur Jaune a gagné !");
-       }
-       if (unePartie.JoueurCourant.Couleur=="Jaune"){
            System.out.println("Le joueur Rouge a gagné !");
        }
-        
+       if (unePartie.JoueurCourant.Couleur=="Jaune"){
+           System.out.println("Le joueur Jaune a gagné !");
+       }
+       if (unePartie.JoueurCourant.Couleur=="Noir"){
+           System.out.println(unePartie.JoueurCourant.nom+"a perdu car il a provoqué une faute de jeu");
+       }
     }
     
 }
