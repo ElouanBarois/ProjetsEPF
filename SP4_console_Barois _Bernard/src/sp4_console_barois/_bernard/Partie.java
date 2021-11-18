@@ -180,6 +180,11 @@ public class Partie {
                     for (int z=0;z<6;z++){
                         if (grilleJeu.CellulesJeu[z][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(z,numColonne)){
                             grilleJeu.CellulesJeu[z][numColonne].activerTrouNoir();
+                            if (grilleJeu.CellulesJeu[z][numColonne].presenceDesintegrateur()){
+                                grilleJeu.CellulesJeu[z][numColonne].recupererDesintegrateur();
+                                JoueurCourant.obtenirDesintegrateur();
+                                System.out.println("Vous avez maintenant "+JoueurCourant.nombreDesintegrateurs+" Desintégrateurs!");
+                            }
                             break;
                         }
                     }
@@ -187,6 +192,7 @@ public class Partie {
                         if (grilleJeu.CellulesJeu[z][numColonne].presenceDesintegrateur() && grilleJeu.celluleOccupee(z,numColonne)){
                             grilleJeu.CellulesJeu[z][numColonne].recupererDesintegrateur();
                             JoueurCourant.obtenirDesintegrateur();
+                            System.out.println("Vous avez maintenant "+JoueurCourant.nombreDesintegrateurs+" Desintégrateurs!");
                             break;
                         }
                     }
@@ -198,6 +204,11 @@ public class Partie {
                     for (int y=0;y<6;y++){
                         if (grilleJeu.CellulesJeu[y][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(y,numColonne)){
                             grilleJeu.CellulesJeu[y][numColonne].activerTrouNoir();
+                            if (grilleJeu.CellulesJeu[y][numColonne].presenceDesintegrateur()){
+                                grilleJeu.CellulesJeu[y][numColonne].recupererDesintegrateur();
+                                JoueurCourant.obtenirDesintegrateur();
+                                System.out.println("Vous avez maintenant "+JoueurCourant.nombreDesintegrateurs+" Desintégrateurs!");
+                            }
                             break;
                         }
                     }
@@ -205,6 +216,7 @@ public class Partie {
                         if (grilleJeu.CellulesJeu[y][numColonne].presenceDesintegrateur() && grilleJeu.celluleOccupee(y,numColonne)){
                             grilleJeu.CellulesJeu[y][numColonne].recupererDesintegrateur();
                             JoueurCourant.obtenirDesintegrateur();
+                            System.out.println("Vous avez maintenant "+JoueurCourant.nombreDesintegrateurs+" Desintégrateurs!");
                             break;
                         }
                     }
@@ -233,19 +245,20 @@ public class Partie {
                             int colonne_choisie = sc.nextInt()-1;
                             if (grilleJeu.celluleOccupee(ligne_choisie, colonne_choisie)){
                                 if(grilleJeu.lireCouleurDuJeton(ligne_choisie, colonne_choisie)!=JoueurCourant.Couleur){
-                                grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
-                                grilleJeu.tasserGrille(colonne_choisie);
+                                    grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
+                                    grilleJeu.tasserGrille(colonne_choisie);
+                                    JoueurCourant.nombreDesintegrateurs--;
+                                    break;
+                                
                                 }else{
                                     System.out.println("Il n'y a pas de jeton ennemi dans cette case!");
                                 }
                             }
                         }
                     }
-                }
-
-                else{
-                System.out.println("Vous ne pouvez pas désintégrer un jeton car il n'y en a pas sur la grille!\n Veuillez placer un Jeton:\n");
-                Choix=1;
+                } else{
+                    System.out.println("Vous ne pouvez pas désintégrer un jeton car il n'y en a pas sur la grille!\n Veuillez placer un Jeton:\n");
+                    Choix=1;
                 }
 
             }
@@ -269,7 +282,6 @@ public class Partie {
             JoueurCourant.Couleur=listeJoueurs[0].Couleur;
         }else if(test2==true){
             JoueurCourant.Couleur=listeJoueurs[1].Couleur;
-        
         }
     }
 }
