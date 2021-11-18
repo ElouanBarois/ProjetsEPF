@@ -80,7 +80,7 @@ public class Cellule {
         }
     }
     public boolean placerDesintegrateur(){
-        if (presenceDesintegrateur()){
+        if (presenceDesintegrateur()==false){
             desintegrateur=true ;
             return true ;
         }

@@ -60,8 +60,16 @@ public class Grille {
                     }else{
                         System.out.print("\033[33m O  ");
                     }
-                }else if(CellulesJeu[i][j].presenceTrouNoir()==true){
+                } else if(CellulesJeu[i][j].presenceDesintegrateur()==true){
+                    if(CellulesJeu[i][j].presenceTrouNoir()==true){
+                        System.out.print("\033[35m O  ");
+                    }else{
+                        System.out.print("\033[32m X  ");
+                    }
+                } else if(CellulesJeu[i][j].presenceTrouNoir()==true){
                     System.out.print("\033[35m O  ");
+                
+                    
                 }else{
                     System.out.print("\033[37m O  ");
                 }
