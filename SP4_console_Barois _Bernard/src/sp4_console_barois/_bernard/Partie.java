@@ -111,8 +111,10 @@ public class Partie {
         boolean test1=false;
         boolean test2=false;
         while (test1==false&&test2==false){
-            
+            System.out.println();
+            System.out.println();
             System.out.println("Au tour de " +JoueurCourant.nom+ " le Joueur de couleur "+JoueurCourant.Couleur+" !");
+            System.out.println("Vous avez "+JoueurCourant.nombreJetonsRestants +" Jetons et "+JoueurCourant.nombreDesintegrateurs+" Desintegrateurs");
             System.out.println();
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("Si vous voulez jouer un Jeton: Tapez 1\nSi vous voulez en récupérer: Tapez 2\nSi vous voulez jouer une Desintegrateur: Tapez 3 ");
@@ -120,7 +122,7 @@ public class Partie {
             int verif_1=1;
             
             
-            
+            //Si le Joueur choisit de récupérer un jeton
             
             if (Choix==2){
                 for (int q=0;q<6;q++){
@@ -142,7 +144,9 @@ public class Partie {
                         int colonne_choisie = sc.nextInt()-1;
                         if (grilleJeu.celluleOccupee(ligne_choisie, colonne_choisie)){
                             if(grilleJeu.lireCouleurDuJeton(ligne_choisie, colonne_choisie)==JoueurCourant.Couleur){
-                                grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
+                                Jeton a=grilleJeu.recupererJeton(ligne_choisie, colonne_choisie);
+                                JoueurCourant.ajouterJeton(a);
+                                JoueurCourant.nombreJetonsRestants++;
                                 grilleJeu.tasserGrille(colonne_choisie);
                                 break;
                             }else{
@@ -182,6 +186,7 @@ public class Partie {
                 if (JoueurCourant.Couleur=="Rouge"){
                     grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[i],numColonne);
                     JoueurCourant.listeJetons[i]=null;
+                    JoueurCourant.nombreJetonsRestants--;
                     i++;
                     for (int z=0;z<6;z++){
                         if (grilleJeu.CellulesJeu[z][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(z,numColonne)){
@@ -206,6 +211,7 @@ public class Partie {
                 if (JoueurCourant.Couleur=="Jaune"){
                     grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[j],numColonne);
                     JoueurCourant.listeJetons[j]=null;
+                    JoueurCourant.nombreJetonsRestants--;
                     j++;
                     for (int y=0;y<6;y++){
                         if (grilleJeu.CellulesJeu[y][numColonne].presenceTrouNoir() && grilleJeu.celluleOccupee(y,numColonne)){
