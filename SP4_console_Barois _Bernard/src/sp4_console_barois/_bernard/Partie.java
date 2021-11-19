@@ -11,14 +11,20 @@ package sp4_console_barois._bernard;
 import java.util.Random;
 import java.util.Scanner;
 public class Partie {
+    //Attributs:
     Joueur [] listeJoueurs =  new Joueur[2];
     Joueur JoueurCourant;
     Grille grilleJeu;
     
+    //Constructeurs: 
     public Partie(Joueur Joueur1,Joueur Joueur2){
         listeJoueurs[0]=Joueur1;
         listeJoueurs[1]=Joueur2;
     }
+    
+    
+    
+    
     public void attribuerCouleursAuxJoueurs(){
         Random rand = new Random();
         int upperbound = 2;

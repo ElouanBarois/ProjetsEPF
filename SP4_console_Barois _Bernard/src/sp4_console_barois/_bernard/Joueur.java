@@ -9,12 +9,14 @@ package sp4_console_barois._bernard;
  * @author Elou
  */
 public class Joueur {
+    //Attributs:
     String nom;
     String Couleur;
     Jeton listeJetons []= new Jeton [21]; 
     int nombreJetonsRestants;
     int nombreDesintegrateurs;
     
+    //Constructeurs: 
     public Joueur(String Unnom){
         nom=Unnom;
     }

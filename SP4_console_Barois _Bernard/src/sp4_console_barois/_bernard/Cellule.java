@@ -10,17 +10,23 @@ package sp4_console_barois._bernard;
  */
 public class Cellule {
     
+    //Attributs:
     Jeton jetonCourant;
     boolean trouNoir;
     boolean desintegrateur;
     
+    
+    //Constructeurs: (avec les valeurs des attributs par défaut)
     public Cellule(){
         jetonCourant=null;
         trouNoir=false;
         desintegrateur=false;
     
     }
-    public boolean affecterJeton(Jeton unJeton){
+    
+    //Méthodes:
+    
+    public boolean affecterJeton(Jeton unJeton){  //On affecte à jetonCourant(le jeton dans la cellule) la valeur d'un jeton
         if (jetonCourant==null) {
             jetonCourant=unJeton;
             return true;
@@ -28,14 +34,14 @@ public class Cellule {
             return false;
         }
     }
-    public String lireCouleurDuJeton(){
+    public String lireCouleurDuJeton(){  //Renvoie la couleur du Jeton situé dans la cellule
         if (jetonCourant==null) {
             return "vide";
         }else{
             return jetonCourant.Couleur;  
         }
     }
-    public boolean supprimerJeton(){
+    public boolean supprimerJeton(){    //Reset la valeur du jeton dans la cellule à null
         if (jetonCourant==null) {
             return false ;
         }
@@ -44,7 +50,7 @@ public class Cellule {
             return true ;
         }
     }
-    public boolean placerTrouNoir(){
+    public boolean placerTrouNoir(){    //Affecte true à l'attribut trouNoir (on place un trou noir dans cette cellule)
         if (presenceTrouNoir()==false){
             trouNoir=true;
             return true;
@@ -52,7 +58,7 @@ public class Cellule {
         
         }
     }
-    public boolean presenceTrouNoir(){
+    public boolean presenceTrouNoir(){  //Teste si un trou noir est présent dans la cellule
         if (trouNoir==true){
             return true ;
         }
@@ -60,7 +66,7 @@ public class Cellule {
             return false ;
         }
     }
-    public boolean activerTrouNoir(){
+    public boolean activerTrouNoir(){  //Si il y a un trou noir, active le trou noir, reset la valeur de jetonCourant et enlève le trou noir
         if (presenceTrouNoir()==true){
             jetonCourant = null ;
             trouNoir=false ;
@@ -71,7 +77,7 @@ public class Cellule {
         }
 
     }
-    public boolean presenceDesintegrateur(){
+    public boolean presenceDesintegrateur(){  //Teste si un desintégrateur est présent dans la cellule
         if (desintegrateur==false){
             return false ;
         }
@@ -79,7 +85,7 @@ public class Cellule {
             return true ;
         }
     }
-    public boolean placerDesintegrateur(){
+    public boolean placerDesintegrateur(){ //Si il n'y a pas de desintégrateur dans la cellule, en rajoute un
         if (presenceDesintegrateur()==false){
             desintegrateur=true ;
             return true ;
@@ -88,7 +94,7 @@ public class Cellule {
             return false ;
         }
     }
-    public boolean recupererDesintegrateur(){
+    public boolean recupererDesintegrateur(){   //Si un désintégrateur est présent, on l'enlève de la cellule
         if (presenceDesintegrateur()==true){
             desintegrateur = false ;
             return true ;
@@ -97,7 +103,7 @@ public class Cellule {
             return false ;
         }
     }
-    public Jeton recupererJeton(){
+    public Jeton recupererJeton(){  //Renvoie le jeton présent dans la cellule
         return jetonCourant ;
     }
     }

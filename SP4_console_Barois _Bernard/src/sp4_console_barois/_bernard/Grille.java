@@ -9,10 +9,11 @@ package sp4_console_barois._bernard;
  * @author Elou
  */
 public class Grille {
-
+    //Attributs:
     Cellule[] [] CellulesJeu = new Cellule [6][7] ;
     int i = 0;
     
+    //Constructeurs: 
     public Grille (){
         for (int i=0;i<6;i++){
             for (int j=0;j<7;j++){
@@ -21,21 +22,24 @@ public class Grille {
         }
     }
 
-    public boolean ajouterJetonDansColonne(Jeton jeton , int numColonne){
+    //Méthodes:
+    
+    
+    public boolean ajouterJetonDansColonne(Jeton jeton , int numColonne){ //teste si la colonne est pleine, si non, on rajoute un jeton à la première cellule sans jeton de cette colonne
             int j=0;
             if (CellulesJeu[5][numColonne].jetonCourant!=null){
                 return false ;
             }
             else {
-                while (celluleOccupee(j,numColonne)){ 
+                while (celluleOccupee(j,numColonne)){ //tant que la cellule est occupée on ne fait rien
                     j++ ;
                 }
-                CellulesJeu[j][numColonne].affecterJeton(jeton) ;
+                CellulesJeu[j][numColonne].affecterJeton(jeton) ; //On rajoute le jeton à la première cellule sans jeton
                 return true ; 
             }
     }
     
-    public boolean etreRemplie() {
+    public boolean etreRemplie() {  //Renvoie true si la grille est pleine
         boolean rep=false;
         for(int i=0;i<7;i++){
             if (CellulesJeu[5][i].jetonCourant!=null){
@@ -48,9 +52,14 @@ public class Grille {
             return false;
         }
     }
-    public void viderGrille(){
-        CellulesJeu=null;
+    public void viderGrille(){ //vide les jetons de la grille
+        for (int i=0;i<6;i++){
+            for (int j=0;j<7;j++){
+                CellulesJeu[i][j].jetonCourant=null;
+            }
+        }
     }
+    
     public void afficherGrilleSurConsole(){
         for (int i=5;i>=0;i--){
             for (int j=0;j<7;j++){
