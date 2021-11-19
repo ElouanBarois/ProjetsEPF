@@ -25,7 +25,8 @@ public class Joueur {
         Couleur=UneCouleur;
     }
     
-    public boolean ajouterJeton(Jeton UnJeton){
+    //Méthodes:
+    public boolean ajouterJeton(Jeton UnJeton){ //Si le nombre de jetons du joueur est <25, rajoute un jeton dans sa liste de jetons
         if (nombreJetonsRestants!=21){
             listeJetons[nombreJetonsRestants]=UnJeton;
             return true;
@@ -33,11 +34,11 @@ public class Joueur {
             return false;
         }
     }
-    public void obtenirDesintegrateur(){
+    public void obtenirDesintegrateur(){ //rajoute un désintégrateur au joueur
         nombreDesintegrateurs++ ;
     }
 
-    public boolean utiliserDesintegrateur(){
+    public boolean utiliserDesintegrateur(){ //Si un desintégrateur est disponible, on enleve 1 au total de desintégrateurs dispo pour le joueur
         if (nombreDesintegrateurs!=0){
             nombreDesintegrateurs-- ;
             return true ;

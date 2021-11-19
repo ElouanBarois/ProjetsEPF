@@ -23,8 +23,6 @@ public class Grille {
     }
 
     //Méthodes:
-    
-    
     public boolean ajouterJetonDansColonne(Jeton jeton , int numColonne){ //teste si la colonne est pleine, si non, on rajoute un jeton à la première cellule sans jeton de cette colonne
             int j=0;
             if (CellulesJeu[5][numColonne].jetonCourant!=null){
@@ -199,7 +197,7 @@ public class Grille {
                 return true;
             }
     }
-    public boolean supprimerJeton(int numLigne, int numColonne){ //Si la cellule est occuper, on reset la valeur du jeton
+    public boolean supprimerJeton(int numLigne, int numColonne){ //Si la cellule est occupée, on reset la valeur du jeton
         if (celluleOccupee(numLigne,numColonne)== true){
             CellulesJeu[numLigne][numColonne].jetonCourant = null ;
             return true ;
