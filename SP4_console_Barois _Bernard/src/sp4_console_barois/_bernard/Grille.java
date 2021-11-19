@@ -201,6 +201,7 @@ public class Grille {
                 for( int j=i;j<5;j++){
                     CellulesJeu[j][numColonne].jetonCourant=CellulesJeu[j+1][numColonne].jetonCourant;
                 }
+                CellulesJeu[5][numColonne].jetonCourant=null;
                 break;
             }
         }
