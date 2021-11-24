@@ -46,7 +46,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             }
                         }
                         grilleJeu.tasserGrille();
-                        
+                        /*
                         boolean vict_j1 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[0]);
                         boolean vict_j2 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[1]);
 
@@ -65,7 +65,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             } else {
                                 message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur");
                             }
-                        }
+                        }*/
 
                     }
                 });
@@ -398,20 +398,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
-        
         if (grilleJeu.colonneRemplie(4) == false) {
             jouerDansColonne(4);
             joueurSuivant();
         }
-        
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
+        jouerDansColonne(3);
         if (grilleJeu.colonneRemplie(3) == false) {
-            jouerDansColonne(3);
+            jouerDansColonne(3) ;
             joueurSuivant();
         }
-        
+     
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
@@ -430,33 +429,24 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
-        
         if (grilleJeu.colonneRemplie(2) == false) {
             jouerDansColonne(2);
             joueurSuivant();
         }
-        
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
-        
         if (grilleJeu.colonneRemplie(5) == false) {
             jouerDansColonne(5);
-            joueurSuivant();
         }
-        
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
-        
-        if (grilleJeu.colonneRemplie(6) == false) {
+       if (grilleJeu.colonneRemplie(6) == false) {
             jouerDansColonne(6);
             joueurSuivant();
         }
-        else {
-            
-        }
-
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     public static void main(String args[]) {
@@ -630,4 +620,3 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 }
-//tftftftft//
