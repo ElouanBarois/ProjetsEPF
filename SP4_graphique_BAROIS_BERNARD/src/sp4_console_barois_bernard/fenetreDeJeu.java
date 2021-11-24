@@ -76,7 +76,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
     
     
-   
+   //qweqwe//
     
     public void joueurSuivant() { // échange le joueur courant et actualise la panneau d'infos joueur avec le nouveau joueur courant
         if (JoueurCourant == listeJoueurs[0]) {
@@ -620,3 +620,4 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 }
+//qweqwe//
