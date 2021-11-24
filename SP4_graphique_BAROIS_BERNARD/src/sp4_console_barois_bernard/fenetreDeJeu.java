@@ -12,12 +12,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         grilleJeu.afficherGrilleSurConsole();
 
-        panneau_info_joueurs.setVisible(false);
-        panneau_info_partie.setVisible(false);
+        panneau_info_joueurs.setVisible(false); // désactive les panneaux d'infos joueurs avant l'activation du bouton de but de partie
+        panneau_info_partie.setVisible(false); // désactive les panneaux d'infos partie avant l'activation du bouton de but de partie
 
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
-                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]); // crée les cellulesgraphiques
                 btn_col_0.setText("1 ");
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,16 +46,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             }
                         }
                         grilleJeu.tasserGrille();
-                        /*
-                        boolean vict_j1 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[0]);
-                        boolean vict_j2 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[1]);
+                        
+                        boolean vict_j1 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[0]); // variable victoire joueur 1
+                        boolean vict_j2 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[1]); // variable victoire joueur 2
 
-                        if (vict_j1 && !vict_j2) {
-                            message.setText("Victoire de " + listeJoueurs[0].nom);
+                        if (vict_j1 && !vict_j2) { // test de victoire quand on désintegre ou quand on retire un jeton ou quand on en désintegre un
+                            message.setText("Victoire de " + listeJoueurs[0].nom); //affichage d'un message de victoire dans le panneau info partie
                         }
 
                         if (vict_j2 && !vict_j1) {
-                            message.setText("Victoire de " + listeJoueurs[1].nom);
+                            message.setText("Victoire de " + listeJoueurs[1].nom); //affichage d'un message de victoire dans le panneau info partie
                         }
 
                         if (vict_j1 && vict_j2) {
@@ -65,7 +65,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             } else {
                                 message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur");
                             }
-                        }*/
+                        }
 
                     }
                 });
@@ -418,7 +418,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             jouerDansColonne(0);
             joueurSuivant() ;
         }
-        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
@@ -438,8 +438,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         if (grilleJeu.colonneRemplie(5) == false) {
             jouerDansColonne(5);
+            joueurSuivant();
         }
-        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
