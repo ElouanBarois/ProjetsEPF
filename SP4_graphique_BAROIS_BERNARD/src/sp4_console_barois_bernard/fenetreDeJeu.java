@@ -78,7 +78,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
    
     
-    public void joueurSuivant() {
+    public void joueurSuivant() { // échange le joueur courant et actualise la panneau d'infos joueur avec le nouveau joueur courant
         if (JoueurCourant == listeJoueurs[0]) {
             JoueurCourant = listeJoueurs[1];
             lbl_jcourant.setText(JoueurCourant.nom);
@@ -92,9 +92,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         boolean resultatAction;
         resultatAction = grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[JoueurCourant.nombreJetonsRestants - 1], indice_colonne);
-        panneau_grille.repaint();
+        panneau_grille.repaint(); // actualise la grille
 
-        for (int z = 0; z < 6; z++) {
+        for (int z = 0; z < 6; z++) { // même code que dans la partie console
 
             if (grilleJeu.CellulesJeu[z][indice_colonne].presenceTrouNoir() && grilleJeu.celluleOccupee(z, indice_colonne)) {
                 grilleJeu.CellulesJeu[z][indice_colonne].activerTrouNoir();
