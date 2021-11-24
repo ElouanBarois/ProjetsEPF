@@ -76,7 +76,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
     
     
-   //qweqwe//
+   
     
     public void joueurSuivant() { // échange le joueur courant et actualise la panneau d'infos joueur avec le nouveau joueur courant
         if (JoueurCourant == listeJoueurs[0]) {
@@ -110,26 +110,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
 
-        lbl_j1_desint.setText(listeJoueurs[0].nombreDesintegrateurs + "");
-        lbl_j2_desint.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+        lbl_j1_desint.setText(listeJoueurs[0].nombreDesintegrateurs + ""); // affiche le nombre de désintégrateurs du jouer 1
+        lbl_j2_desint.setText(listeJoueurs[1].nombreDesintegrateurs + ""); // affiche le nombre de désintégrateurs du jouer 2
 
         boolean vict_j1 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[0]);
         boolean vict_j2 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[1]);
 
-        if (vict_j1 && !vict_j2) {
-            message.setText("Victoire de " + listeJoueurs[0].nom);
+        if (vict_j1 && !vict_j2) { // test de victoire quand on rajoute un dernier jeton pour créer un alignement de 4 jetons
+            message.setText("Victoire de " + listeJoueurs[0].nom); // affichage d'un message de victoire dans le panneau info partie
         }
 
         if (vict_j2 && !vict_j1) {
-            message.setText("Victoire de " + listeJoueurs[1].nom);
+            message.setText("Victoire de " + listeJoueurs[1].nom); // affichage d'un message de victoire dans le panneau info partie
         }
 
-        if (vict_j1 && vict_j2) {
+        if (vict_j1 && vict_j2) { // test d'égalité quand on désintegre ou on retire un jeton, le joueur courant qui crée l'égaltie perd la partie
 
             if (JoueurCourant == listeJoueurs[0]) {
-                message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur");
+                message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur"); // message annonçant le gagnant et la raison de cette victoire
             } else {
-                message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur");
+                message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur"); // message annonçant le gagnant et la raison de cette victoire
             }
         }
 
@@ -620,4 +620,4 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 }
-//qweqwe//
+
