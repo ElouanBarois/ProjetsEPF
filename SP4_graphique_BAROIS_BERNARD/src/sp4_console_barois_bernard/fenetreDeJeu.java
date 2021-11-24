@@ -76,7 +76,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
     
     
-   
+   //qweqwe//
     
     public void joueurSuivant() {
         if (JoueurCourant == listeJoueurs[0]) {
