@@ -47,6 +47,29 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         }
                         grilleJeu.tasserGrille();
                         
+                        
+                        if (grilleJeu.colonneRemplie(0) != true) { // test si la colonne 0 est remplie, si elle ne l'est pas le bouton 0 s'active
+                            btn_col_0.setEnabled(true);
+                        }
+                        if (grilleJeu.colonneRemplie(1) != true) { // test si la colonne 1 est remplie, si elle ne l'est pas le bouton 1 s'active
+                            btn_col_1.setEnabled(true);
+                        }
+                        if (grilleJeu.colonneRemplie(2) != true) { // test si la colonne 2 est remplie, si elle ne l'est pas le bouton 2 s'active
+                            btn_col_2.setEnabled(true);
+                        }
+                        if (grilleJeu.colonneRemplie(3) != true) { // test si la colonne 3 est remplie, si elle ne l'est pas le bouton 3 s'active
+                            btn_col_3.setEnabled(true);
+                        }
+                        if (grilleJeu.colonneRemplie(4) != true) { // test si la colonne 4 est remplie, si elle ne l'est pas le bouton 4 s'active
+                            btn_col_4.setEnabled(true);
+                        }
+                        if (grilleJeu.colonneRemplie(5) != true) { // test si la colonne 5 est remplie, si elle ne l'est pas le bouton 5 s'active
+                            btn_col_5.setEnabled(true);
+                        }
+                        if (grilleJeu.colonneRemplie(6) != true) { // test si la colonne 6 est remplie, si elle ne l'est pas le bouton 6 s'active
+                            btn_col_6.setEnabled(true);
+                        }
+                        
                         boolean vict_j1 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[0]); // variable victoire joueur 1
                         boolean vict_j2 = grilleJeu.etreGagnantePourJoueur(listeJoueurs[1]); // variable victoire joueur 2
 
@@ -60,7 +83,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
                         if (vict_j1 && vict_j2) {
 
-                            if (JoueurCourant == listeJoueurs[0]) {
+                            if (JoueurCourant == listeJoueurs[0]) { // test de victoire quand il y a egalité a cause lu retrait ou de la desintegration d'un jeton
                                 message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur");
                             } else {
                                 message.setText("Victoire de " + listeJoueurs[1].nom + "Faute de jeu de l'autre joueur");
@@ -81,16 +104,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public void joueurSuivant() { // échange le joueur courant et actualise la panneau d'infos joueur avec le nouveau joueur courant
         if (JoueurCourant == listeJoueurs[0]) {
             JoueurCourant = listeJoueurs[1];
-            lbl_jcourant.setText(JoueurCourant.nom);
+            lbl_jcourant.setText(JoueurCourant.nom); // le label prend le nom du joueur courant
         } else {
             JoueurCourant = listeJoueurs[0];
-            lbl_jcourant.setText(JoueurCourant.nom);
+            lbl_jcourant.setText(JoueurCourant.nom); // le label prend le nom du joueur courant
         }
     }
 
     public boolean jouerDansColonne(int indice_colonne) {
 
-        boolean resultatAction;
+        boolean resultatAction; // variable locale
         resultatAction = grilleJeu.ajouterJetonDansColonne(JoueurCourant.listeJetons[JoueurCourant.nombreJetonsRestants - 1], indice_colonne);
         panneau_grille.repaint(); // actualise la grille
 
@@ -398,55 +421,75 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
-        if (grilleJeu.colonneRemplie(4) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(4);
-            joueurSuivant();
-        }
+           jouerDansColonne(4); // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(4) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_4.setEnabled(false);
+            }
+            joueurSuivant(); // on passe au joueur suivant
+        
+        
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
-        if (grilleJeu.colonneRemplie(3) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(3) ;
-            joueurSuivant();
-        }
+            jouerDansColonne(3) ; // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(3) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_3.setEnabled(false);
+            }
+            joueurSuivant(); // on passe au joueur suivant
+        
+        
      
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
-        if (grilleJeu.colonneRemplie(0) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(0);
-            joueurSuivant() ;
-        }
+            jouerDansColonne(0); // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(0) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_0.setEnabled(false);
+            }
+            joueurSuivant() ; // on passe au joueur suivant
         
+        
+       
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
-        if (grilleJeu.colonneRemplie(1) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(1);
-            joueurSuivant();
-        }
+            jouerDansColonne(1); // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(1) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_1.setEnabled(false);
+            }
+            joueurSuivant(); // on passe au joueur suivant
+        
+        
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
-        if (grilleJeu.colonneRemplie(2) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(2);
-            joueurSuivant();
-        }
+            jouerDansColonne(2); // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(2) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_2.setEnabled(false);
+            }
+            joueurSuivant(); // on passe au joueur suivant
+        
+        
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
-        if (grilleJeu.colonneRemplie(5) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(5);
-            joueurSuivant();
-        }
+            jouerDansColonne(5); // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(5) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_5.setEnabled(false);
+            }
+            joueurSuivant(); // on passe au joueur suivant
+        
+        
         
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
-       if (grilleJeu.colonneRemplie(6) == false) { // si la colonne n'est pas remplie, on joue dans la colonne et on passe au joueur suivant
-            jouerDansColonne(6);
-            joueurSuivant();
-        }
+            jouerDansColonne(6); // on joue dans la colonne
+            if (grilleJeu.colonneRemplie(6) == true) { // si la colonne est remplie, on desactive le bouton
+                btn_col_6.setEnabled(false);
+            }
+            joueurSuivant(); // on passe au joueur suivant
+        
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     public static void main(String args[]) {
