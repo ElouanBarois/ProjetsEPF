@@ -17,7 +17,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         button_facile.setVisible(false); 
         button_difficile.setVisible(false);
-        
+        button_Play.setEnabled(false) ;
         
     }
 
@@ -34,6 +34,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_Play = new javax.swing.JButton();
         button_facile = new javax.swing.JButton();
         button_Menu = new javax.swing.JButton();
+        lbl_bienvenue = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -50,7 +51,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 button_difficileActionPerformed(evt);
             }
         });
-        getContentPane().add(button_difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 250, 90));
+        getContentPane().add(button_difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 250, 90));
 
         button_Play.setBackground(new java.awt.Color(255, 51, 51));
         button_Play.setFont(new java.awt.Font("Arial Black", 3, 24)); // NOI18N
@@ -60,7 +61,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 button_PlayActionPerformed(evt);
             }
         });
-        getContentPane().add(button_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 250, 90));
+        getContentPane().add(button_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 250, 90));
 
         button_facile.setBackground(new java.awt.Color(255, 255, 102));
         button_facile.setFont(new java.awt.Font("Arial Black", 3, 24)); // NOI18N
@@ -71,7 +72,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 button_facileActionPerformed(evt);
             }
         });
-        getContentPane().add(button_facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 250, 90));
+        getContentPane().add(button_facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 250, 90));
 
         button_Menu.setBackground(new java.awt.Color(51, 255, 51));
         button_Menu.setFont(new java.awt.Font("Arial Black", 3, 24)); // NOI18N
@@ -82,9 +83,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 button_MenuActionPerformed(evt);
             }
         });
-        getContentPane().add(button_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 250, 90));
+        getContentPane().add(button_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 250, 90));
 
-        setBounds(0, 0, 1058, 686);
+        lbl_bienvenue.setFont(new java.awt.Font("sansserif", 3, 36)); // NOI18N
+        lbl_bienvenue.setForeground(new java.awt.Color(51, 0, 51));
+        lbl_bienvenue.setText("Bienvenue dans le jeu Lights Out!");
+        getContentPane().add(lbl_bienvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+
+        setBounds(0, 0, 1058, 624);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_difficileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_difficileActionPerformed
@@ -92,6 +98,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_difficile.setVisible(false);
         button_Play.setVisible(true);
         button_Menu.setVisible(true);
+        button_Play.setEnabled(true) ;
     }//GEN-LAST:event_button_difficileActionPerformed
 
     private void button_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_PlayActionPerformed
@@ -107,6 +114,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_difficile.setVisible(false);
         button_Play.setVisible(true);
         button_Menu.setVisible(true);
+        button_Play.setEnabled(true) ;
     }//GEN-LAST:event_button_facileActionPerformed
 
     private void button_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_MenuActionPerformed
@@ -156,5 +164,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JButton button_Play;
     private javax.swing.JButton button_difficile;
     private javax.swing.JButton button_facile;
+    private javax.swing.JLabel lbl_bienvenue;
     // End of variables declaration//GEN-END:variables
 }

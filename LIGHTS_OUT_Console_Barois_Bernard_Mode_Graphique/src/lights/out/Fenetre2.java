@@ -26,20 +26,16 @@ public class Fenetre2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grille_55 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
-        );
+        grille_55.setBackground(new java.awt.Color(255, 204, 204));
+        grille_55.setLayout(new java.awt.GridLayout(5, 5));
+        getContentPane().add(grille_55, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 590, 340));
 
-        pack();
+        setBounds(0, 0, 835, 519);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -78,5 +74,6 @@ public class Fenetre2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel grille_55;
     // End of variables declaration//GEN-END:variables
 }
