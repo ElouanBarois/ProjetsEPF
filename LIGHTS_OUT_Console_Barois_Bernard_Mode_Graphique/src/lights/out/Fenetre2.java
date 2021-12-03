@@ -15,6 +15,16 @@ public class Fenetre2 extends javax.swing.JFrame {
      */
     public Fenetre2() {
         initComponents();
+        
+        
+        for (int i=0 ; i<5 ; i++){
+            for (int j=0 ; j<5 ; j++){
+                CelluleGraphique CellGraph = new CelluleGraphique () ;
+                grille_55.add(CellGraph) ;
+            }
+        }
+        
+        
     }
 
     /**
@@ -33,7 +43,7 @@ public class Fenetre2 extends javax.swing.JFrame {
 
         grille_55.setBackground(new java.awt.Color(255, 204, 204));
         grille_55.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(grille_55, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 590, 340));
+        getContentPane().add(grille_55, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 485, 485));
 
         setBounds(0, 0, 835, 519);
     }// </editor-fold>//GEN-END:initComponents
