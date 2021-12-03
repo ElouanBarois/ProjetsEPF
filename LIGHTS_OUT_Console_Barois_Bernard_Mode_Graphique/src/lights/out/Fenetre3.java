@@ -19,7 +19,7 @@ public class Fenetre3 extends javax.swing.JFrame {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                CelluleGraphique CellGraph = new CelluleGraphique(CellulesJeu[i][j]);
+                CelluleGraphique2 CellGraph = new CelluleGraphique2(CellulesJeu[i][j]);
                 grille_99.add(CellGraph);
             }
         }
@@ -37,9 +37,9 @@ public class Fenetre3 extends javax.swing.JFrame {
 
         grille_99.setBackground(new java.awt.Color(255, 204, 204));
         grille_99.setLayout(new java.awt.GridLayout(9, 9));
-        getContentPane().add(grille_99, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 873, 873));
+        getContentPane().add(grille_99, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 720, 720));
 
-        setBounds(0, 0, 1198, 1155);
+        setBounds(0, 0, 1029, 912);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -11,7 +11,7 @@ public class CelluleGraphique extends JButton{
     Cellule celluleAssociee ;
     ImageIcon caseClair = new javax.swing.ImageIcon(getClass().getResource("/Images/caseClair.drawio.png")) ;
     ImageIcon caseFoncee = new javax.swing.ImageIcon(getClass().getResource("/images/caseFoncee.drawio.png")) ;
-
+    
 public CelluleGraphique (Cellule uneCellule){
     celluleAssociee = uneCellule ;
 
