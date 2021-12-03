@@ -52,7 +52,7 @@ public class Grille {
            if (numColonne==0){
                CellulesJeu[numLigne-1][numColonne].ChangerDeCouleur();
                CellulesJeu[numLigne][numColonne+1].ChangerDeCouleur();
-           }else if(numColonne==5){
+           }else if(numColonne==4){
                CellulesJeu[numLigne-1][numColonne].ChangerDeCouleur();
                CellulesJeu[numLigne][numColonne-1].ChangerDeCouleur();
            }else{
