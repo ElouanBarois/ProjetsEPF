@@ -4,7 +4,7 @@ package lights.out;
 
 public class fenetreDeJeu extends javax.swing.JFrame {
 
-    
+    int a ;
     public fenetreDeJeu() {
         initComponents();
         button_facile.setVisible(false);
@@ -87,13 +87,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_Play.setVisible(true);
         button_Menu.setVisible(true);
         button_Play.setEnabled(true);
+        a = 2;
     }//GEN-LAST:event_button_difficileActionPerformed
 
     private void button_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_PlayActionPerformed
-
-        Fenetre2 f2 = new Fenetre2();
-        f2.show();
-        this.dispose();
+        if (a==1){
+            Fenetre2 f2 = new Fenetre2();
+            f2.show();
+            this.dispose();
+        }
+        else{
+            Fenetre3 f3 = new Fenetre3();
+            f3.show();
+            this.dispose();
+        }
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_button_PlayActionPerformed
 
@@ -103,6 +111,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_Play.setVisible(true);
         button_Menu.setVisible(true);
         button_Play.setEnabled(true);
+        a = 1;
     }//GEN-LAST:event_button_facileActionPerformed
 
     private void button_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_MenuActionPerformed
