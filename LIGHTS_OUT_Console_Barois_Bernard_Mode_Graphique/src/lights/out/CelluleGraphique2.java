@@ -20,14 +20,8 @@ public class CelluleGraphique2 extends JButton{
 
 public void paintComponent (Graphics A){
         super.paintComponent(A) ;
-        Random rand = new Random();
-        int Coul=rand.nextInt(2);
-        if (Coul==1){
-            setIcon(caseClair2) ;
-        }
-        else {
-            setIcon(caseFoncee2) ;
-        }
+        setIcon(caseClair2) ;
+        
         
         
 }

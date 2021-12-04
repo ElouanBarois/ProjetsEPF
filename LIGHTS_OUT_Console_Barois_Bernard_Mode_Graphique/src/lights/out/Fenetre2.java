@@ -5,20 +5,36 @@ package lights.out;
 public class Fenetre2 extends javax.swing.JFrame {
 
     Cellule[] [] CellulesJeu = new Cellule[5][5] ;
-     
-     
+    Grille grilleJeu;
+    
+    
     public Fenetre2() {
         initComponents();
-        
+        grilleJeu = new Grille ();
+       
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                CelluleGraphique CellGraph = new CelluleGraphique(CellulesJeu[i][j]);
+                CelluleGraphique CellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
                 grille_55.add(CellGraph);
+                CellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        
+                        
+                        if (CellGraph.celluleAssociee.Couleur=="Clair"){
+                            CellGraph.celluleAssociee.ChangerDeCouleur();
+                            System.out.println(CellGraph.celluleAssociee.Couleur) ;
+                        }
+                        
+                    }
+                });
+                
             }
         }
+                
+            
         
-
+    
     }
 
     
