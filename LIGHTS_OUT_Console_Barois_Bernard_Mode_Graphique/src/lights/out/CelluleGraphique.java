@@ -21,7 +21,13 @@ public CelluleGraphique (Cellule uneCellule){
 
 public void paintComponent (Graphics G){
         super.paintComponent(G) ;
-        setIcon(caseClair) ;
+        if (celluleAssociee.Couleur=="Clair"){
+            setIcon(caseClair) ;
+        }
+        else {
+            setIcon(caseFoncee) ;
+        }
+        
         
         
         
