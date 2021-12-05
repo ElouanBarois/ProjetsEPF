@@ -9,7 +9,6 @@ import javax.swing.JButton;
 
 public class CelluleGraphique extends JButton{
     Cellule celluleAssociee ;
-    String couleur ;
     ImageIcon caseClair = new javax.swing.ImageIcon(getClass().getResource("/Images/caseClair.drawio.png")) ;
     ImageIcon caseFoncee = new javax.swing.ImageIcon(getClass().getResource("/images/caseFoncee.drawio.png")) ;
     

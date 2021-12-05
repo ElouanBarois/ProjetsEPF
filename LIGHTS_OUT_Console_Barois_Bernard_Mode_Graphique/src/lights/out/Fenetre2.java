@@ -16,14 +16,24 @@ public class Fenetre2 extends javax.swing.JFrame {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 CelluleGraphique CellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
+                CelluleGraphique CellGraph1 = new CelluleGraphique(grilleJeu.CellulesJeu[i+1][j]);
+                CelluleGraphique CellGraph2 = new CelluleGraphique(grilleJeu.CellulesJeu[i][j+1]);
+                CelluleGraphique CellGraph3 = new CelluleGraphique(grilleJeu.CellulesJeu[i-1][j]);
+                CelluleGraphique CellGraph4 = new CelluleGraphique(grilleJeu.CellulesJeu[i][j-1]);
                 grille_55.add(CellGraph);
                 CellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         
                         
                         if (CellGraph.celluleAssociee.Couleur=="Clair"){
+                            CellGraph.celluleAssociee.ChangerDeCouleur() ;                            
+                            System.out.println(CellGraph.celluleAssociee.Couleur) ;
+                            grille_55.repaint() ;
+                        }
+                        else{
                             CellGraph.celluleAssociee.ChangerDeCouleur();
                             System.out.println(CellGraph.celluleAssociee.Couleur) ;
+                            grille_55.repaint() ;
                         }
                         
                     }
