@@ -11,9 +11,9 @@ package mastermind_console_barois_bernard;
 public class Cellule {
     //Attributs
     String Couleur;
-    String [] TabCouleur={"Rouge","Jaune","Vert","Bleu","Blanc","Noir"};
+    String [] TabCouleur={"Rouge","Jaune","Vert","Bleu","Orange","Violet"};
+    
     public void AjouterBoule(int CouleurChoisie){
-        
         Couleur=TabCouleur[CouleurChoisie-1];
     }
     
