@@ -8,13 +8,16 @@ import javax.swing.JButton;
 
 
 public class CelluleGraphique extends JButton{
+    int x;
+    int y;
     Cellule celluleAssociee ;
     ImageIcon caseClair = new javax.swing.ImageIcon(getClass().getResource("/Images/caseClair.drawio.png")) ;
     ImageIcon caseFoncee = new javax.swing.ImageIcon(getClass().getResource("/images/caseFoncee.drawio.png")) ;
     
-public CelluleGraphique (Cellule uneCellule){
+public CelluleGraphique (Cellule uneCellule, int a, int b){
     celluleAssociee = uneCellule ;
-    
+    x=a ;
+    y=b;
 
 }
 
