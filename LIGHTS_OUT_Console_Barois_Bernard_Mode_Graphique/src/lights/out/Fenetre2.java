@@ -1,23 +1,42 @@
 
 package lights.out;
 
+import java.util.Random;
+
 
 public class Fenetre2 extends javax.swing.JFrame {
 
     Cellule[] [] CellulesJeu = new Cellule[5][5] ;
     Grille grilleJeu;
-    
+    Cellule [][] tab = new Cellule[5][5] ;
     
     public Fenetre2() {
         initComponents();
         grilleJeu = new Grille ();
        
-
+        
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 CelluleGraphique CellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j],i,j);
                 
+                
+                
                 grille_55.add(CellGraph);
+                for (int z=0;z<20;z++){
+                    grilleJeu.ClicJoueur(CellGraph.x,CellGraph.y);
+                            Random rand = new Random();
+                            int maxLigne = 5;
+                            int maxColonne= 5;
+                            int random_ligne =0;
+                            int random_colonne=0;
+                            random_ligne = rand.nextInt(maxLigne);
+                            random_colonne= rand.nextInt(maxColonne);
+                            
+                            grilleJeu.ClicJoueur(random_ligne,random_colonne);
+                            }
+                
+                
+                grille_55.repaint() ;
                 CellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         
@@ -30,7 +49,14 @@ public class Fenetre2 extends javax.swing.JFrame {
                                                        
                             grilleJeu.ClicJoueur(CellGraph.x,CellGraph.y);
                             grille_55.repaint() ;
+                            
+                            if (grilleJeu.etreGagnantePourJoueur()==true){
+                                System.out.println("Gagné") ;
+                                
+                            }
+                            
                         }
+                    
                         
                     
                 });
