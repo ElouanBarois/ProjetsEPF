@@ -7,8 +7,7 @@ import java.util.Random;
 public class Fenetre2 extends javax.swing.JFrame {
 
     Cellule[] [] CellulesJeu = new Cellule[5][5] ;
-    Grille grilleJeu;
-    Cellule [][] tab = new Cellule[5][5] ;
+    Grille grilleJeu;   
     
     public Fenetre2() {
         initComponents();

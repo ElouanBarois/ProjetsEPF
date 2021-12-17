@@ -4,6 +4,8 @@ package lights.out;
 
 public class Grille {
     Cellule[] [] CellulesJeu = new Cellule [5][5] ;
+    Cellule[] [] CellulesJeu2 = new Cellule [9][9] ;
+    
     
     public Grille (){
         for (int i=0;i<5;i++){
@@ -11,7 +13,15 @@ public class Grille {
                 CellulesJeu[i][j]=new Cellule();
             }
         }
+        for (int i=0;i<9;i++){
+            for (int j=0;j<9;j++){
+                CellulesJeu2[i][j]=new Cellule();
+            }
+        }
     }
+    
+    
+   
     
     
     public void afficherGrilleSurConsole(){
@@ -72,10 +82,71 @@ public class Grille {
        }
     }
     
+    public void ClicJoueur2(int numLigne,int numColonne){
+       CellulesJeu2[numLigne][numColonne].ChangerDeCouleur();
+       if (numLigne==0){
+           if (numColonne==0){
+               CellulesJeu2[numLigne+1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne+1].ChangerDeCouleur();
+           }else if(numColonne==8){
+               CellulesJeu2[numLigne+1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne-1].ChangerDeCouleur();
+           }else{
+               CellulesJeu2[numLigne+1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne-1].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne+1].ChangerDeCouleur();
+           }
+       }
+       else if (numLigne==8){
+           if (numColonne==0){
+               CellulesJeu2[numLigne-1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne+1].ChangerDeCouleur();
+           }else if(numColonne==8){
+               CellulesJeu2[numLigne-1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne-1].ChangerDeCouleur();
+           }else{
+               CellulesJeu2[numLigne-1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne-1].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne+1].ChangerDeCouleur();
+           }
+       }
+       else if (numColonne==0){
+               CellulesJeu2[numLigne+1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne-1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne+1].ChangerDeCouleur();
+       }
+       else if (numColonne==8){
+               CellulesJeu2[numLigne+1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne-1][numColonne].ChangerDeCouleur();
+               CellulesJeu2[numLigne][numColonne-1].ChangerDeCouleur();
+       }else{
+           CellulesJeu2[numLigne+1][numColonne].ChangerDeCouleur();
+           CellulesJeu2[numLigne-1][numColonne].ChangerDeCouleur();
+           CellulesJeu2[numLigne][numColonne-1].ChangerDeCouleur();
+           CellulesJeu2[numLigne][numColonne+1].ChangerDeCouleur();
+       }
+    }
+    
     public boolean etreGagnantePourJoueur(){
        boolean res=true;
         for (int i=0;i<5;i++){
             for (int j=0;j<5;j++){
+                if (CellulesJeu[i][j].Couleur=="Clair"){
+                    res=false;
+                    break;
+                }
+            }
+            if(res==false){
+                break;
+            }
+        }
+        return res;
+    }
+    
+    public boolean etreGagnantePourJoueur2(){
+       boolean res=true;
+        for (int i=0;i<9;i++){
+            for (int j=0;j<9;j++){
                 if (CellulesJeu[i][j].Couleur=="Clair"){
                     res=false;
                     break;

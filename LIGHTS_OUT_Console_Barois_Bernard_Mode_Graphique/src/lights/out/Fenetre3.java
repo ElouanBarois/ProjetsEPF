@@ -1,21 +1,59 @@
 
 package lights.out;
 
+import java.util.Random;
+
 
 public class Fenetre3 extends javax.swing.JFrame {
 
-    Cellule[] [] CellulesJeu = new Cellule[9][9] ;
-    
+    Cellule[] [] CellulesJeu2 = new Cellule[9][9] ;
+    Grille grilleJeu2;
     
     public Fenetre3() {
         initComponents();
-        
+        grilleJeu2 = new Grille ();
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                CelluleGraphique2 CellGraph = new CelluleGraphique2(CellulesJeu[i][j]);
+                CelluleGraphique CellGraph = new CelluleGraphique(grilleJeu2.CellulesJeu2[i][j],i,j);
                 grille_99.add(CellGraph);
+            
+                for (int z=0;z<40;z++){
+                    grilleJeu2.ClicJoueur2(CellGraph.x,CellGraph.y);
+                    Random rand = new Random();
+                    int maxLigne = 9;
+                    int maxColonne= 9;
+                    int random_ligne =0;
+                    int random_colonne=0;
+                    random_ligne = rand.nextInt(maxLigne);
+                    random_colonne= rand.nextInt(maxColonne);
+
+                    grilleJeu2.ClicJoueur2(random_ligne,random_colonne);
+                }
+                
+                
+                grille_99.repaint() ;
+                CellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        
+                        System.out.println(CellGraph.x) ;
+                        System.out.println(CellGraph.y) ;
+                        
+                        
+                        
+                        
+                                                       
+                        grilleJeu2.ClicJoueur2(CellGraph.x,CellGraph.y);
+                        grille_99.repaint() ;
+
+                        if (grilleJeu2.etreGagnantePourJoueur2()==true){
+                            System.out.println("Gagné") ;
+
+                        }
+                    }        
+                });            
             }
+                        
         }
     }
 
