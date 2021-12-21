@@ -9,5 +9,20 @@ package mastermind_console_barois_bernard;
  * @author Elou
  */
 public class Grille {
+    Ligne [] LignesJeu = new Ligne [14] ;
     
+    
+    //Constructeurs: 
+    public Grille (){
+            for (int j=0;j<14;j++){
+                LignesJeu[j]=new Ligne();
+            }
+    }
+    
+    public void AfficherGrilleSurConsole(){
+        for (int j=0;j<14;j++){
+            LignesJeu[j].AfficherLigneSurConsole();
+            
+        }
+    }
 }

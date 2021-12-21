@@ -15,7 +15,9 @@ public class MASTERMIND_Console_Barois_Bernard {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Ligne a=new Ligne();
+        Grille a=new Grille();
+        a.AfficherGrilleSurConsole();
+        
         
     }
     

@@ -19,8 +19,12 @@ public class Ligne {
                 CellulesLigne[i]=new Cellule();
         }
     }
+    
     public void AfficherLigneSurConsole(){
         for (int i=0;i<4;i++){
+            if (CellulesLigne[i].Couleur=="vide"){
+                System.out.print("\033[37m O  ");
+            }
             if (CellulesLigne[i].Couleur=="Rouge"){
                 System.out.print("\033[31m O  ");
             }
@@ -39,7 +43,8 @@ public class Ligne {
             if (CellulesLigne[i].Couleur=="Orange"){
                 System.out.print("\\033[48:2:255:165:0m%s\\033[m O  ");
             }
-        }
+        }System.out.print("\n");
+        
     }
     
 
