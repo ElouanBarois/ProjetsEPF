@@ -15,8 +15,10 @@ public class MASTERMIND_Console_Barois_Bernard {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Grille a=new Grille();
-        a.AfficherGrilleSurConsole();
+        Partie a=new Partie();
+        a.initialiserPartie();
+        a.DebuterPartie();
+        
         
         
     }

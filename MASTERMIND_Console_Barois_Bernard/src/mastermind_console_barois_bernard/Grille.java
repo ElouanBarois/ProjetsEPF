@@ -19,9 +19,9 @@ public class Grille {
             }
     }
     
-    public void AfficherGrilleSurConsole(){
+    public void AfficherGrilleSurConsole(String[] Code){
         for (int j=0;j<14;j++){
-            LignesJeu[j].AfficherLigneSurConsole();
+            LignesJeu[j].AfficherLigneSurConsole(Code);
             
         }
     }
