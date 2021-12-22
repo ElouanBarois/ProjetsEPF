@@ -148,7 +148,7 @@ public class Fenetre2 extends javax.swing.JFrame {
         txt_indice.setText("Vous auriez pu faire un effort...\n\nCliquez sous chaque lumière allumée en partant d'en\nhaut et en descendant petit à petit.\nPuis recommencez en cliquant une case aléatoire sur\nla ligne du haut.");
         jScrollPane3.setViewportView(txt_indice);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 120, 390, 160));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 120, 390, 140));
 
         setBounds(0, 0, 1452, 653);
     }// </editor-fold>//GEN-END:initComponents
