@@ -5,7 +5,7 @@ package lights.out;
 public class Grille {
     Cellule[] [] CellulesJeu = new Cellule [5][5] ;
     Cellule[] [] CellulesJeu2 = new Cellule [9][9] ;
-    
+    int cpt = 0 ;
     
     public Grille (){
         for (int i=0;i<5;i++){
@@ -38,6 +38,7 @@ public class Grille {
     }
     
     public void ClicJoueur(int numLigne,int numColonne){
+       cpt ++;
        CellulesJeu[numLigne][numColonne].ChangerDeCouleur();
        if (numLigne==0){
            if (numColonne==0){
