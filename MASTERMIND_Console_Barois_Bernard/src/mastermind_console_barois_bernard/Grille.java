@@ -19,10 +19,29 @@ public class Grille {
             }
     }
     
-    public void AfficherGrilleSurConsole(String[] Code){
+    public String[] AfficherGrilleSurConsole(String[] Code,int ligneActuelle ){
+        String [] B = new String [4];
         for (int j=0;j<14;j++){
-            LignesJeu[j].AfficherLigneSurConsole(Code);
-            
+            String [] A =LignesJeu[j].AfficherLigneSurConsole(Code);
+            if (j==ligneActuelle){
+                B = A;
+            }
+        }
+        return B;
+    }
+    
+    public boolean EtreGagnantePourJoueur(String[] Code,String[] CouleursLigne){
+        int compt=0;
+        for (int j=0;j<4;j++){
+            if (CouleursLigne[j]==Code[j]){
+                compt++;
+            }
+        }
+        if (compt==4){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
