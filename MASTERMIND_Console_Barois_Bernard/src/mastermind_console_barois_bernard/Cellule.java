@@ -13,6 +13,10 @@ public class Cellule {
     String Couleur;
     String [] TabCouleur={"Rouge","Jaune","Vert","Bleu","Orange","Violet"};
     
+    public Cellule(){
+    Couleur="vide";
+    }
+    
     public void AjouterBoule(int CouleurChoisie){
         Couleur=TabCouleur[CouleurChoisie-1];
     }
