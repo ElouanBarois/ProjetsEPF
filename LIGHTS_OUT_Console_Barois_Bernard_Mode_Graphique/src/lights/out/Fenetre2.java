@@ -5,6 +5,7 @@ import java.util.Random;
 
 
 public class Fenetre2 extends javax.swing.JFrame {
+    
 
     Cellule[] [] CellulesJeu = new Cellule[5][5] ;
     Grille grilleJeu;   
@@ -12,7 +13,7 @@ public class Fenetre2 extends javax.swing.JFrame {
     public Fenetre2() {
         initComponents();
         grilleJeu = new Grille ();
-       
+       but_rejouer.setVisible(false);
         
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -50,11 +51,18 @@ public class Fenetre2 extends javax.swing.JFrame {
                             grille_55.repaint() ;
                             
                             if (grilleJeu.etreGagnantePourJoueur()==true){
-                                System.out.println("Gagné") ;
+                                but_rejouer.setVisible(true);
+                                
+                               
+                                
                                 
                             }
                             
                         }
+
+                    
+
+                    
                     
                         
                     
@@ -74,6 +82,7 @@ public class Fenetre2 extends javax.swing.JFrame {
     private void initComponents() {
 
         grille_55 = new javax.swing.JPanel();
+        but_rejouer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,8 +91,26 @@ public class Fenetre2 extends javax.swing.JFrame {
         grille_55.setLayout(new java.awt.GridLayout(5, 5));
         getContentPane().add(grille_55, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 485, 485));
 
+        but_rejouer.setBackground(new java.awt.Color(0, 0, 0));
+        but_rejouer.setFont(new java.awt.Font("sansserif", 3, 18)); // NOI18N
+        but_rejouer.setForeground(new java.awt.Color(255, 255, 255));
+        but_rejouer.setText("Rejouer!");
+        but_rejouer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_rejouerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(but_rejouer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 170, 90));
+
         setBounds(0, 0, 835, 605);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void but_rejouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_rejouerActionPerformed
+        fenetreDeJeu f1 = new fenetreDeJeu();
+        f1.show();
+        this.dispose() ;
+        
+    }//GEN-LAST:event_but_rejouerActionPerformed
 
     
     public static void main(String args[]) {
@@ -117,8 +144,9 @@ public class Fenetre2 extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton but_rejouer;
     private javax.swing.JPanel grille_55;
     // End of variables declaration//GEN-END:variables
 }
