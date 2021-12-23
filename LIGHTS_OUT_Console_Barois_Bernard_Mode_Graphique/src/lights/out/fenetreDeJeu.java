@@ -10,9 +10,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_facile.setVisible(false);
         button_difficile.setVisible(false);
         button_Play.setEnabled(false);
-
+        ImageIcon jLabel1 = new ImageIcon() ;
+        
     }
-
+    
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,6 +24,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         button_facile = new javax.swing.JButton();
         button_Menu = new javax.swing.JButton();
         lbl_bienvenue = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -77,6 +79,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_bienvenue.setForeground(new java.awt.Color(51, 0, 51));
         lbl_bienvenue.setText("Bienvenue dans le jeu Lights Out!");
         getContentPane().add(lbl_bienvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
         setBounds(0, 0, 1058, 624);
     }// </editor-fold>//GEN-END:initComponents
@@ -161,6 +166,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JButton button_Play;
     private javax.swing.JButton button_difficile;
     private javax.swing.JButton button_facile;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_bienvenue;
     // End of variables declaration//GEN-END:variables
 }
