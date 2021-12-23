@@ -41,6 +41,7 @@ public class Fenetre2 extends javax.swing.JFrame {
                 
                 grille_55.repaint() ;
                 CellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    int cpt = 0 ;
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         
                         
@@ -54,8 +55,9 @@ public class Fenetre2 extends javax.swing.JFrame {
                                                        
                             grilleJeu.ClicJoueur(CellGraph.x,CellGraph.y);
                             grille_55.repaint() ;
-                            
+                            cpt ++ ;
                             if (grilleJeu.etreGagnantePourJoueur()==true){
+                                System.out.println(cpt);
                                 but_rejouer.setVisible(true);
                                 Gagne.setVisible(true);
                                 
@@ -127,10 +129,10 @@ public class Fenetre2 extends javax.swing.JFrame {
         Gagne.setFont(new java.awt.Font("sansserif", 3, 18)); // NOI18N
         Gagne.setForeground(new java.awt.Color(255, 0, 0));
         Gagne.setRows(5);
-        Gagne.setText("\n            \n                      Bravo c'est gagné !!!");
+        Gagne.setText("\n    Bravo vous avez réussi la version facile!\n    Passez à la version difficile maintenant...");
         jScrollPane2.setViewportView(Gagne);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 410, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 268, 410, -1));
 
         indice.setFont(new java.awt.Font("sansserif", 3, 18)); // NOI18N
         indice.setForeground(new java.awt.Color(51, 51, 51));

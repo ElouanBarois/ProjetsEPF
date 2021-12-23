@@ -64,7 +64,7 @@
               <Font name="sansserif" size="14" style="3"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="R&#xe8;gles du jeu:&#xa;&#xa;Le but est tr&#xe8;s simple: &#xe9;teindre toutes les lumi&#xe8;res!&#xa;Une lumi&#xe8;re peut prendre deux &#xe9;tats:&#xa;-Allum&#xe9;e (Vert Clair)&#xa;-Eteinte (Vert Fonc&#xe9;)&#xa;&#xa;Quand vous cliquez sur une lumi&#xe8;re,  son &#xe9;tat change&#xa;et celui des lumi&#xe8;res autours d&apos;elle change aussi.&#xa;&#xa;Alors... Bonne chance!!"/>
+            <Property name="text" type="java.lang.String" value="R&#xe8;gles du jeu:&#xa;&#xa;Le but est tr&#xe8;s simple: &#xe9;teindre toutes les lumi&#xe8;res!&#xa;Une lumi&#xe8;re peut prendre deux &#xe9;tats:&#xa;-Allum&#xe9;e (Vert Clair)&#xa;-Eteinte (Vert Fonc&#xe9;)&#xa;&#xa;Quand vous cliquez sur une lumi&#xe8;re,  son &#xe9;tat change&#xa;et celui des lumi&#xe8;res autour d&apos;elle change aussi.&#xa;&#xa;Alors... Bonne chance!!"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -143,7 +143,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="840" y="600" width="390" height="140"/>
+          <AbsoluteConstraints x="840" y="600" width="410" height="140"/>
         </Constraint>
       </Constraints>
 

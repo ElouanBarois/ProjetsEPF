@@ -7,22 +7,22 @@ import java.util.Random;
 public class Fenetre3 extends javax.swing.JFrame {
 
     Cellule[] [] CellulesJeu2 = new Cellule[9][9] ;
-    Grille grilleJeu2;
+    Grille grilleJeu;
     
     public Fenetre3() {
         initComponents();
-        grilleJeu2 = new Grille ();
+        grilleJeu = new Grille ();
         but_rejouer.setVisible(false);
         Gagne.setVisible(false);
         txt_indice.setVisible(false) ;
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                CelluleGraphique2 CellGraph = new CelluleGraphique2(grilleJeu2.CellulesJeu2[i][j],i,j);
+                CelluleGraphique2 CellGraph = new CelluleGraphique2(grilleJeu.CellulesJeu2[i][j],i,j);
                 grille_99.add(CellGraph);
             
                 for (int z=0;z<40;z++){
-                    grilleJeu2.ClicJoueur2(CellGraph.x,CellGraph.y);
+                    grilleJeu.ClicJoueur2(CellGraph.x,CellGraph.y);
                     Random rand = new Random();
                     int maxLigne = 9;
                     int maxColonne= 9;
@@ -31,7 +31,7 @@ public class Fenetre3 extends javax.swing.JFrame {
                     random_ligne = rand.nextInt(maxLigne);
                     random_colonne= rand.nextInt(maxColonne);
 
-                    grilleJeu2.ClicJoueur2(random_ligne,random_colonne);
+                    grilleJeu.ClicJoueur2(random_ligne,random_colonne);
                 }
                 
                 
@@ -46,10 +46,10 @@ public class Fenetre3 extends javax.swing.JFrame {
                         
                         
                                                        
-                        grilleJeu2.ClicJoueur2(CellGraph.x,CellGraph.y);
+                        grilleJeu.ClicJoueur2(CellGraph.x,CellGraph.y);
                         grille_99.repaint() ;
 
-                        if (grilleJeu2.etreGagnantePourJoueur2()==true){
+                        if (grilleJeu.etreGagnantePourJoueur2()==true){
                             but_rejouer.setVisible(true);
                             Gagne.setVisible(true);
 
@@ -86,7 +86,7 @@ public class Fenetre3 extends javax.swing.JFrame {
         reglesDuJeu.setColumns(20);
         reglesDuJeu.setFont(new java.awt.Font("sansserif", 3, 14)); // NOI18N
         reglesDuJeu.setRows(5);
-        reglesDuJeu.setText("Règles du jeu:\n\nLe but est très simple: éteindre toutes les lumières!\nUne lumière peut prendre deux états:\n-Allumée (Vert Clair)\n-Eteinte (Vert Foncé)\n\nQuand vous cliquez sur une lumière,  son état change\net celui des lumières autours d'elle change aussi.\n\nAlors... Bonne chance!!");
+        reglesDuJeu.setText("Règles du jeu:\n\nLe but est très simple: éteindre toutes les lumières!\nUne lumière peut prendre deux états:\n-Allumée (Vert Clair)\n-Eteinte (Vert Foncé)\n\nQuand vous cliquez sur une lumière,  son état change\net celui des lumières autour d'elle change aussi.\n\nAlors... Bonne chance!!");
         jScrollPane1.setViewportView(reglesDuJeu);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 410, 230));
@@ -127,7 +127,7 @@ public class Fenetre3 extends javax.swing.JFrame {
         txt_indice.setText("Vous auriez pu faire un effort...\n\nCliquez sous chaque lumière allumée en partant d'en\nhaut et en descendant petit à petit.\nPuis recommencez en cliquant une case aléatoire sur\nla ligne du haut.");
         jScrollPane3.setViewportView(txt_indice);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 600, 390, 140));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 600, 410, 140));
 
         setBounds(0, 0, 1344, 912);
     }// </editor-fold>//GEN-END:initComponents
