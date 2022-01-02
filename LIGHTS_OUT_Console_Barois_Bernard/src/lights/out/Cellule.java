@@ -1,24 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lights.out;
 
-/**
- *
- * @author Elou
- */
+
 public class Cellule {
-    String Couleur;
+    String Couleur; 
+    
     public Cellule(){
-        Couleur="Blanc";
+        Couleur="Clair"; // une cellule prend la couleur Clair
     }
     
-    public void ChangerDeCouleur(){
-        if (Couleur=="Violet"){
-            Couleur="Blanc";
-        }else{
-            Couleur="Violet";
+    public void ChangerDeCouleur(){ // méthode permettant de changer de couleur
+        if (Couleur=="Foncé"){ // si la case est Foncé on la change en clair
+            Couleur="Clair";
+        }else{ // si la case est Clair on la change en Foncé
+            Couleur="Foncé";
         }
     }
 }
