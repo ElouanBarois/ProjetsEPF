@@ -6,52 +6,49 @@ import java.util.Random;
 
 public class Fenetre3 extends javax.swing.JFrame {
 
-    Cellule[] [] CellulesJeu2 = new Cellule[9][9] ;
-    Grille grilleJeu;
+    Cellule[] [] CellulesJeu2 = new Cellule[9][9] ; // Création d'une grille 9x9
+    Grille grilleJeu; // initialise la grille grilleJeu 
     
     public Fenetre3() {
-        initComponents();
-        grilleJeu = new Grille ();
-        but_rejouer.setVisible(false);
-        Gagne.setVisible(false);
-        txt_indice.setVisible(false) ;
+        initComponents(); // initialise les composants 
+        grilleJeu = new Grille (); // création d'une nouvelle grille grilleJeu
+        but_rejouer.setVisible(false); // cache le button rejouer 
+        Gagne.setVisible(false); // cache le button gagne 
+        txt_indice.setVisible(false) ; // cache le texte indice
 
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < 9; i++) { // boucle parcourant les lignes du tableau
+            for (int j = 0; j < 9; j++) { // boucle parcourant les colonnes du tableau
                 CelluleGraphique2 CellGraph = new CelluleGraphique2(grilleJeu.CellulesJeu2[i][j],i,j);
-                grille_99.add(CellGraph);
+                // associe à chaque cellule du tableau une celluleGraphique correspondante ayant les mêmes coordonnées (i,j)
+                
+                grille_99.add(CellGraph);// ajoute les cellulesGraphiques dans la grille 9x9 créée en graphique
             
-                for (int z=0;z<40;z++){
-                    grilleJeu.ClicJoueur2(CellGraph.x,CellGraph.y);
+                for (int z=0;z<40;z++){ // boucle pour créer des clics aléatoires avant le début de la partie
+                    
                     Random rand = new Random();
-                    int maxLigne = 9;
-                    int maxColonne= 9;
-                    int random_ligne =0;
-                    int random_colonne=0;
-                    random_ligne = rand.nextInt(maxLigne);
-                    random_colonne= rand.nextInt(maxColonne);
+                    int maxLigne = 9; // nombre max de lignes
+                    int maxColonne= 9; // nombre max de colonnes
+                    int random_ligne =0; // initialise une variable de type int correspondant à un numero de ligne
+                    int random_colonne=0; // initialise une variable de type int correspondant à un numero de colonne
+                    random_ligne = rand.nextInt(maxLigne); // associe à la variable random_ligne une nombre aléatoire entre 0 et le nombre max de lignes (9)
+                    random_colonne= rand.nextInt(maxColonne); // associe à la variable random_colonne une nombre aléatoire entre 0 et le nombre max de colonnes (9)
 
-                    grilleJeu.ClicJoueur2(random_ligne,random_colonne);
+                    grilleJeu.ClicJoueur2(random_ligne,random_colonne); // effectue un clic joueur avec les coordonnées aléatoires générées juste avant
                 }
                 
                 
-                grille_99.repaint() ;
+                grille_99.repaint() ; // actualise l'affichage de la grille 
                 CellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         
-                        System.out.println(CellGraph.x) ;
-                        System.out.println(CellGraph.y) ;
-                        
-                        
-                        
-                        
+                       
                                                        
-                        grilleJeu.ClicJoueur2(CellGraph.x,CellGraph.y);
-                        grille_99.repaint() ;
+                        grilleJeu.ClicJoueur2(CellGraph.x,CellGraph.y); // clic joueur sur une cellgraph
+                        grille_99.repaint() ; // actualise l'affichage de la grille 
 
-                        if (grilleJeu.etreGagnantePourJoueur2()==true){
-                            but_rejouer.setVisible(true);
-                            Gagne.setVisible(true);
+                        if (grilleJeu.etreGagnantePourJoueur2()==true){ // si la grille est gagnante alors:
+                            but_rejouer.setVisible(true); // affiche le button rejouer 
+                            Gagne.setVisible(true); // affiche le button gagne
 
                         }
                     }        
@@ -133,13 +130,15 @@ public class Fenetre3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void but_rejouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_rejouerActionPerformed
-        fenetreDeJeu f1 = new fenetreDeJeu();
-        f1.show();
-        this.dispose() ;
+        // Quand on clique sur le button rejouer alors:
+        fenetreDeJeu f1 = new fenetreDeJeu(); // on crée une nouvelle fenêtre
+        f1.show(); // on l'affiche
+        this.dispose() ; // on quitte celle-ci
     }//GEN-LAST:event_but_rejouerActionPerformed
 
     private void indiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indiceActionPerformed
-       txt_indice.setVisible(true) ;
+       // Quand on clique sur le button indice alors:
+        txt_indice.setVisible(true) ; // on affiche le texte indice
     }//GEN-LAST:event_indiceActionPerformed
 
     /**
@@ -172,7 +171,7 @@ public class Fenetre3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fenetre3().setVisible(true);
+                new Fenetre3().setVisible(true); // affiche la fenetre 3 quand on run le programme
             }
         });
     }
