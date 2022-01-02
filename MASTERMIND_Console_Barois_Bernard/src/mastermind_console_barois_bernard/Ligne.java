@@ -23,9 +23,9 @@ public class Ligne {
     
     
     
-    public String[] AfficherLigneSurConsole(String[] Code){
+    public String[] AfficherLigneSurConsole(String[] Code){ //On prend le code caché en argument car il est nécessaire pour les indices
        int compteur=0;
-        for (int i=0;i<4;i++){
+        for (int i=0;i<4;i++){ //Selon la couleur de la cellule on imprime un 0 de cette couleur
             CouleursLigne[i]=CellulesLigne[i].Couleur;
             if (CellulesLigne[i].Couleur=="vide"){
                 System.out.print("\033[37m O  ");
@@ -51,25 +51,25 @@ public class Ligne {
         }
         for (int j=0;j<4;j++){
             if(CouleursLigne[j]==Code[j]){ //Si bon endroit bonne couleur
-                System.out.print("\033[31m .");
+                System.out.print("\033[31m ."); //Indice Rouge
                 compteur++;
             }
             else if (compteur<=j){
-                if(CouleursLigne[j]==Code[0]||CouleursLigne[j]==Code[1]||CouleursLigne[j]==Code[2]||CouleursLigne[j]==Code[3]){
-                    System.out.print("\033[33m .");
+                if(CouleursLigne[j]==Code[0]||CouleursLigne[j]==Code[1]||CouleursLigne[j]==Code[2]||CouleursLigne[j]==Code[3]){ //Si bonne couleur mauvais endroit
+                    System.out.print("\033[33m ."); //Indices Jaunes
                 }
                 else{
-                    System.out.print("\033[37m .");
+                    System.out.print("\033[37m ."); //Pas d'indice
                 }
             }
             else{
-                System.out.print("\033[37m .");
+                System.out.print("\033[37m .");//Pas d'indice
             }
         }
         
         
         System.out.print("\n");
-        return CouleursLigne;
+        return CouleursLigne; //On renvoie les couleurs de la ligne qui nous serviront à tester si la grille est gagnante
         
     }
     
