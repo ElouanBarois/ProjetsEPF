@@ -13,11 +13,13 @@ public class Cellule {
     String Couleur;
     String [] TabCouleur={"Rouge","Jaune","Vert","Bleu","Orange","Violet"};
     
+    //Constructeur
     public Cellule(){
     Couleur="vide";
     }
     
-    public void AjouterBoule(int CouleurChoisie){
+    
+    public void AjouterBoule(int CouleurChoisie){ //On modifie la valeur de la couleur d'une cellule
         Couleur=TabCouleur[CouleurChoisie-1];
     }
     

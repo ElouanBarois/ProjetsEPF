@@ -15,8 +15,9 @@ public class MASTERMIND_Console_Barois_Bernard {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Partie a=new Partie();
-        a.initialiserPartie();
+        Partie a=new Partie(); //On crée un objet partie
+        // On appelle les fonctions de la classe partie
+        a.initialiserPartie(); 
         a.DebuterPartie();
         
         
