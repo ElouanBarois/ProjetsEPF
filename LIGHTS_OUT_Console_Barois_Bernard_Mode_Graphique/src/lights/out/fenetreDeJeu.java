@@ -4,15 +4,15 @@ package lights.out;
 
 public class fenetreDeJeu extends javax.swing.JFrame {
 
-    int a ;
+    int a ; // variable qui va permettre l'ouverture des différentes fenêtres
     public fenetreDeJeu() {
-        initComponents();
-        button_facile.setVisible(false);
-        button_difficile.setVisible(false);
-        button_Play.setEnabled(false);
-
+        initComponents();   // initialise les composants 
+        button_facile.setVisible(false);  // cache le button facile
+        button_difficile.setVisible(false); // cache le button difficile
+        button_Play.setEnabled(false); // désactive le button play
+        
     }
-
+    
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -82,43 +82,47 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_difficileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_difficileActionPerformed
-        button_facile.setVisible(false);
-        button_difficile.setVisible(false);
-        button_Play.setVisible(true);
-        button_Menu.setVisible(true);
-        button_Play.setEnabled(true);
-        a = 2;
+        // Quand on clique sur le button difficile alors:
+        button_facile.setVisible(false);  // cache le button facile
+        button_difficile.setVisible(false); // cache le button fdifficile
+        button_Play.setVisible(true); // affiche le button play
+        button_Menu.setVisible(true); // affiche le button menu
+        button_Play.setEnabled(true); // active le button play
+        a = 2; // variable prend une certaine valeur 
     }//GEN-LAST:event_button_difficileActionPerformed
 
     private void button_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_PlayActionPerformed
-        if (a==1){
-            Fenetre2 f2 = new Fenetre2();
-            f2.show();
-            this.dispose();
+        // Quand on clique sur le button play alors:
+        if (a==1){ // si on a cliqué sur le button facile
+            Fenetre2 f2 = new Fenetre2(); // on crée une nouvelle fenêtre
+            f2.show(); // cette fenêtre s'ouvre
+            this.dispose(); // celle-ci se ferme
         }
-        else{
-            Fenetre3 f3 = new Fenetre3();
-            f3.show();
-            this.dispose();
+        else{ // si on a cliqué sur le button difficile
+            Fenetre3 f3 = new Fenetre3(); // on crée une nouvelle fenêtre
+            f3.show(); // cette fenêtre s'ouvre
+            this.dispose(); // celle-ci se ferme
         }
         
         // TODO add your handling code here:
     }//GEN-LAST:event_button_PlayActionPerformed
 
     private void button_facileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_facileActionPerformed
-        button_facile.setVisible(false);
-        button_difficile.setVisible(false);
-        button_Play.setVisible(true);
-        button_Menu.setVisible(true);
-        button_Play.setEnabled(true);
-        a = 1;
+        // Quand on clique sur le button facile alors:
+        button_facile.setVisible(false); // cache le button facile
+        button_difficile.setVisible(false); // cache le button difficile
+        button_Play.setVisible(true); // affiche le button play
+        button_Menu.setVisible(true); // affiche le button menu
+        button_Play.setEnabled(true); // active le button play
+        a = 1; // variable prend une certaine valeur 
     }//GEN-LAST:event_button_facileActionPerformed
 
     private void button_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_MenuActionPerformed
-        button_facile.setVisible(true);
-        button_difficile.setVisible(true);
-        button_Play.setVisible(false);
-        button_Menu.setVisible(false);
+        // Quand on clique sur le button menu alors:
+        button_facile.setVisible(true); // affiche le button facile
+        button_difficile.setVisible(true); // affiche le button difficile
+        button_Play.setVisible(false); // cache le button play
+        button_Menu.setVisible(false); // cache le button menu
     }//GEN-LAST:event_button_MenuActionPerformed
 
     /**
@@ -151,7 +155,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new fenetreDeJeu().setVisible(true);
+                new fenetreDeJeu().setVisible(true); // Quand on run le programme, cela ouvre fenetreDeJeu() et l'affiche
             }
         });
     }
