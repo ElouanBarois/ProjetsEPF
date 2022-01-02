@@ -148,7 +148,7 @@ public class Grille {
        boolean res=true;
         for (int i=0;i<9;i++){
             for (int j=0;j<9;j++){
-                if (CellulesJeu[i][j].Couleur=="Clair"){
+                if (CellulesJeu2[i][j].Couleur=="Clair"){
                     res=false;
                     break;
                 }
